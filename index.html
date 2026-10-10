@@ -3,71 +3,243 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Alden Gerald Kusnadi's academic portfolio for Information Systems and Cloud Computing at BINUS University.">
+  <meta name="description" content="Alden Gerald Kusnadi's portfolio of information systems, cloud computing, software, and local AI projects.">
   <title>Alden Gerald Kusnadi | Academic Portfolio</title>
   <style>
-    :root { color-scheme: dark; --bg:#07111f; --panel:#0d1b2d; --text:#eaf2ff; --muted:#9db0ca; --blue:#63a7ff; --gold:#ffb454; --line:#213653; }
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0d1b2d;
+      --text: #eaf2ff;
+      --muted: #9db0ca;
+      --blue: #63a7ff;
+      --gold: #ffb454;
+      --line: #213653;
+    }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:radial-gradient(circle at top right,#123159 0,transparent 34%),var(--bg); line-height:1.65; }
-    a { color:inherit; }
-    .shell { width:min(1080px,92vw); margin:auto; }
-    nav { display:flex; align-items:center; justify-content:flex-end; padding:22px 0; }
-    .navlinks { display:flex; gap:20px; color:var(--muted); font-size:.94rem; }
-    .navlinks a { text-decoration:none; }
-    header { padding:36px 0 72px; }
-    .eyebrow { color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; }
-    h1 { max-width:850px; margin:14px 0 18px; font-size:clamp(2.6rem,7vw,5.8rem); line-height:.98; letter-spacing:-.055em; }
-    .lead { max-width:720px; color:var(--muted); font-size:clamp(1.05rem,2vw,1.25rem); }
-    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .button { display:inline-block; padding:12px 18px; border:1px solid var(--line); border-radius:999px; text-decoration:none; font-weight:700; }
-    .button.primary { background:var(--blue); color:#06101e; border-color:var(--blue); }
-    section { padding:54px 0; }
-    h2 { margin:0 0 10px; font-size:2rem; letter-spacing:-.03em; }
-    .section-copy { color:var(--muted); max-width:700px; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:28px; }
-    .card { display:flex; flex-direction:column; padding:25px; background:linear-gradient(145deg,rgba(18,42,71,.9),rgba(10,25,43,.92)); border:1px solid var(--line); border-radius:18px; text-decoration:none; transition:transform .2s,border-color .2s; }
-    .card:hover { transform:translateY(-3px); border-color:var(--blue); }
-    .tag { align-self:flex-start; color:var(--gold); font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.09em; }
-    .card h3 { margin:12px 0 8px; font-size:1.3rem; }
-    .card p { color:var(--muted); margin:0 0 18px; }
-    .stack { margin-top:auto; color:#c6d8ef; font-size:.88rem; }
-    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:25px; }
-    .chip { padding:8px 12px; border:1px solid var(--line); border-radius:999px; color:#c6d8ef; background:rgba(13,27,45,.65); }
-    .note { margin-top:24px; padding:18px 20px; border-left:3px solid var(--gold); color:var(--muted); background:rgba(13,27,45,.6); }
-    footer { padding:48px 0 70px; color:var(--muted); border-top:1px solid var(--line); margin-top:44px; }
-    @media (max-width:720px) { nav { display:none; } .grid { grid-template-columns:1fr; } header { padding-top:58px; } }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #123159 0, transparent 34%), var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .shell { width: min(1080px, 92vw); margin: auto; }
+    nav { display: flex; align-items: center; justify-content: flex-end; padding: 22px 0; }
+    .navlinks { display: flex; gap: 20px; color: var(--muted); font-size: .94rem; }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover { color: var(--text); }
+    header { padding: 36px 0 72px; }
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .78rem;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 14px 0 18px;
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .lead { max-width: 750px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .button:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .button.primary { background: var(--blue); color: #06101e; border-color: var(--blue); }
+    section { padding: 54px 0; }
+    h2 { margin: 0 0 10px; font-size: 2rem; letter-spacing: -.03em; }
+    .section-copy { color: var(--muted); max-width: 700px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      background: linear-gradient(145deg, rgba(18, 42, 71, .9), rgba(10, 25, 43, .92));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover { transform: translateY(-3px); border-color: var(--blue); }
+    .card:focus-visible, .button:focus-visible, .navlinks a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .card--featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, 1.1fr);
+      align-items: center;
+      gap: 30px;
+    }
+
+    .tag {
+      align-self: flex-start;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+    }
+
+    .card h3 { margin: 12px 0 8px; font-size: 1.3rem; }
+    .card--featured h3 { font-size: clamp(1.65rem, 3vw, 2.25rem); }
+    .card p { color: var(--muted); margin: 0 0 18px; }
+    .stack { margin-top: auto; color: #c6d8ef; font-size: .88rem; }
+    .project-link { display: inline-block; margin-top: 22px; color: var(--blue); font-weight: 700; }
+    .screenshot {
+      margin: 0;
+      background: rgba(4, 12, 23, .65);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      overflow: hidden;
+    }
+
+    .screenshot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+    .screenshot figcaption { padding: 9px 12px; color: var(--muted); font-size: .78rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .chip { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: #c6d8ef; background: rgba(13, 27, 45, .65); }
+    .note { margin-top: 24px; padding: 18px 20px; border-left: 3px solid var(--gold); color: var(--muted); background: rgba(13, 27, 45, .6); }
+    footer { padding: 48px 0 70px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 44px; }
+
+    @media (max-width: 760px) {
+      nav { display: none; }
+      header { padding-top: 58px; }
+      .grid { grid-template-columns: 1fr; }
+      .card--featured { grid-column: auto; grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button, .card { transition: none; }
+    }
   </style>
 </head>
 <body>
   <div class="shell">
-    <nav><div class="navlinks"><a href="#projects">Projects</a><a href="#skills">Technologies</a><a href="https://github.com/Alden-Gerald">GitHub</a></div></nav>
+    <nav aria-label="Primary navigation">
+      <div class="navlinks">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Technologies</a>
+        <a href="https://github.com/Alden-Gerald">GitHub</a>
+      </div>
+    </nav>
+
     <header id="top">
       <div class="eyebrow">Information Systems · Cloud Computing</div>
-      <h1>Building clear systems from real requirements.</h1>
-      <p class="lead">I’m Alden Gerald Kusnadi, an Information Systems student at BINUS University. This portfolio brings together selected academic work across cloud architecture, system design, databases, desktop software, and web development.</p>
-      <div class="actions"><a class="button primary" href="#projects">Explore projects</a><a class="button" href="https://github.com/Alden-Gerald">View GitHub profile</a><a class="button" href="https://www.canva.com/design/DAHWHNhUkzI/Ov6pu36KBYYRnV_do8Z2TQ/edit?continue_in_browser=true">View CV</a></div>
+      <h1>I turn complex requirements into systems people can actually use.</h1>
+      <p class="lead">I’m Alden Gerald Kusnadi, an Information Systems student at BINUS University. I enjoy following a problem from its requirements and architecture through to the data, code, and interface. Here are a few projects that show how I work.</p>
+      <div class="actions">
+        <a class="button primary" href="#projects">Explore my projects</a>
+        <a class="button" href="https://github.com/Alden-Gerald">View GitHub profile</a>
+        <a class="button" href="https://www.canva.com/design/DAHWHNhUkzI/Ov6pu36KBYYRnV_do8Z2TQ/view">View CV</a>
+      </div>
     </header>
+
     <main>
       <section id="projects">
         <div class="eyebrow">Selected work</div>
-        <h2>Academic projects</h2>
-        <p class="section-copy">Every project stays in its own repository, preserving its documentation and history while this page provides one clear entry point.</p>
+        <h2>Projects I’ve learned from</h2>
+        <p class="section-copy">These projects span local AI, cloud architecture, systems analysis, databases, and application development. Each link opens the project repository, where the documentation and development history live.</p>
+
         <div class="grid">
-          <a class="card" href="https://github.com/Alden-Gerald/aws-cloud-storage-strategy"><span class="tag">Cloud Computing & AWS</span><h3>AWS Cloud Storage Strategy</h3><p>Architecture case study mapping education-platform workloads to storage services based on latency, scale, durability, access, security, and cost.</p><span class="stack">EBS · S3 · CloudFront · EFS · S3 Glacier · IAM</span></a>
-          <a class="card" href="https://github.com/Alden-Gerald/hampiness-system-design"><span class="tag">System Analysis & Design</span><h3>Hampiness System Design</h3><p>Requirements, process and object modeling, interaction flows, and a proposed three-tier marketplace architecture.</p><span class="stack">DFD · UML · Fishbone analysis · Three-tier architecture</span></a>
-          <a class="card" href="https://github.com/Alden-Gerald/student-registration-javafx"><span class="tag">Database & Desktop</span><h3>Student Registration</h3><p>JavaFX CRUD application with input validation, confirmation feedback, relational persistence, and a separated DAO layer.</p><span class="stack">Java 17 · JavaFX 21 · MySQL · JDBC · DAO</span></a>
-          <a class="card" href="https://github.com/Alden-Gerald/thriftvibe-marketplace"><span class="tag">Web Development & Database</span><h3>ThriftVibe Marketplace</h3><p>Multi-role marketplace prototype covering buyer, seller, and administrator workflows in one database-backed web application.</p><span class="stack">PHP 8+ · MySQL · HTML · CSS · JavaScript · PDO</span></a>
+          <a class="card card--featured" href="https://github.com/Alden-Gerald/Lumina">
+            <div>
+              <span class="tag">Featured · Local AI &amp; Developer Tools</span>
+              <h3>Lumina</h3>
+              <p>A private, local-first workspace for chat, study, document work, and bounded coding tasks. Lumina combines local model inference with disposable Git workspaces, visible validation, diff review, and a guarded step for applying verified changes.</p>
+              <span class="stack">Python · Local models · Git workspaces · MCP · Web interface</span><br>
+              <span class="project-link">Explore Lumina on GitHub →</span>
+            </div>
+            <figure class="screenshot">
+              <img src="https://raw.githubusercontent.com/Alden-Gerald/Lumina/main/docs/assets/lumina-code-workspace.png" alt="Lumina's code workspace showing local model controls, a task conversation, and file attachments" loading="lazy">
+              <figcaption>Lumina’s code workspace, from the project repository.</figcaption>
+            </figure>
+          </a>
+
+          <a class="card" href="https://github.com/Alden-Gerald/aws-cloud-storage-strategy">
+            <span class="tag">Cloud Computing &amp; AWS</span>
+            <h3>AWS Cloud Storage Strategy</h3>
+            <p>An architecture case study that matches education-platform workloads to storage services by weighing latency, scale, durability, access, security, and cost.</p>
+            <span class="stack">EBS · S3 · CloudFront · EFS · S3 Glacier · IAM</span>
+          </a>
+
+          <a class="card" href="https://github.com/Alden-Gerald/hampiness-system-design">
+            <span class="tag">System Analysis &amp; Design</span>
+            <h3>Hampiness System Design</h3>
+            <p>A system-design study that moves from requirements and root-cause analysis to process models, interactions, and a proposed three-tier marketplace architecture.</p>
+            <span class="stack">DFD · UML · Fishbone analysis · Three-tier architecture</span>
+          </a>
+
+          <a class="card" href="https://github.com/Alden-Gerald/student-registration-javafx">
+            <span class="tag">Database &amp; Desktop</span>
+            <h3>Student Registration</h3>
+            <p>A JavaFX CRUD application built around clear validation, useful confirmation feedback, relational persistence, and a separate data-access layer.</p>
+            <span class="stack">Java 17 · JavaFX 21 · MySQL · JDBC · DAO</span>
+          </a>
+
+          <a class="card" href="https://github.com/Alden-Gerald/thriftvibe-marketplace">
+            <span class="tag">Web Development &amp; Database</span>
+            <h3>ThriftVibe Marketplace</h3>
+            <p>A database-backed marketplace prototype that brings buyer, seller, and administrator journeys together in one web application.</p>
+            <span class="stack">PHP 8+ · MySQL · HTML · CSS · JavaScript · PDO</span>
+          </a>
         </div>
-        <p class="note">Some linked repositories are private. Access can be provided for academic review when appropriate. No production credentials or private records are included.</p>
+
+        <p class="note">Some linked repositories may be private. I can provide access for academic review when appropriate; production credentials and private records are never included.</p>
       </section>
+
       <section id="skills">
         <div class="eyebrow">Technology</div>
-        <h2>Tools and concepts</h2>
-        <div class="chips"><span class="chip">AWS storage services</span><span class="chip">CloudFront</span><span class="chip">Java</span><span class="chip">JavaFX</span><span class="chip">PHP</span><span class="chip">HTML / CSS / JavaScript</span><span class="chip">MySQL / MariaDB</span><span class="chip">JDBC / PDO</span><span class="chip">UML & DFD</span><span class="chip">DAO pattern</span><span class="chip">Input validation</span><span class="chip">Role-based workflows</span></div>
+        <h2>Tools and concepts I work with</h2>
+        <p class="section-copy">My coursework and personal projects have given me hands-on experience across architecture, implementation, and the checks that make software safer to change.</p>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Local AI workflows</span>
+          <span class="chip">Git</span>
+          <span class="chip">AWS storage services</span>
+          <span class="chip">CloudFront</span>
+          <span class="chip">Java &amp; JavaFX</span>
+          <span class="chip">PHP</span>
+          <span class="chip">HTML / CSS / JavaScript</span>
+          <span class="chip">MySQL / MariaDB</span>
+          <span class="chip">JDBC / PDO</span>
+          <span class="chip">UML &amp; DFD</span>
+          <span class="chip">DAO pattern</span>
+          <span class="chip">Input validation</span>
+          <span class="chip">Role-based workflows</span>
+        </div>
       </section>
     </main>
-    <footer><strong>Alden Gerald Kusnadi</strong><br>Information Systems · BINUS University<br><a href="https://github.com/Alden-Gerald">github.com/Alden-Gerald</a></footer>
+
+    <footer>
+      <strong>Alden Gerald Kusnadi</strong><br>
+      Information Systems · BINUS University<br>
+      <a href="https://github.com/Alden-Gerald">github.com/Alden-Gerald</a>
+    </footer>
   </div>
 </body>
 </html>
+
