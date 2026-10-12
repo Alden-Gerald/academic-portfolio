@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alden Gerald Kusnadi's academic portfolio for Information Systems and Cloud Computing at BINUS University.">
+  <title>Alden Gerald Kusnadi | Academic Portfolio</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07111f; --panel:#0d1b2d; --text:#eaf2ff; --muted:#9db0ca; --blue:#63a7ff; --gold:#ffb454; --line:#213653; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:radial-gradient(circle at top right,#123159 0,transparent 34%),var(--bg); line-height:1.65; }
+    a { color:inherit; }
+    .shell { width:min(1080px,92vw); margin:auto; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:22px 0; }
+    .brand { font-weight:800; letter-spacing:.02em; text-decoration:none; }
+    .navlinks { display:flex; gap:20px; color:var(--muted); font-size:.94rem; }
+    .navlinks a { text-decoration:none; }
+    header { padding:88px 0 72px; }
+    .eyebrow { color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; }
+    h1 { max-width:850px; margin:14px 0 18px; font-size:clamp(2.6rem,7vw,5.8rem); line-height:.98; letter-spacing:-.055em; }
+    .lead { max-width:720px; color:var(--muted); font-size:clamp(1.05rem,2vw,1.25rem); }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .button { display:inline-block; padding:12px 18px; border:1px solid var(--line); border-radius:999px; text-decoration:none; font-weight:700; }
+    .button.primary { background:var(--blue); color:#06101e; border-color:var(--blue); }
+    section { padding:54px 0; }
+    h2 { margin:0 0 10px; font-size:2rem; letter-spacing:-.03em; }
+    .section-copy { color:var(--muted); max-width:700px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:28px; }
+    .card { display:flex; flex-direction:column; padding:25px; background:linear-gradient(145deg,rgba(18,42,71,.9),rgba(10,25,43,.92)); border:1px solid var(--line); border-radius:18px; text-decoration:none; transition:transform .2s,border-color .2s; }
+    .card:hover { transform:translateY(-3px); border-color:var(--blue); }
+    .tag { align-self:flex-start; color:var(--gold); font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.09em; }
+    .card h3 { margin:12px 0 8px; font-size:1.3rem; }
+    .card p { color:var(--muted); margin:0 0 18px; }
+    .stack { margin-top:auto; color:#c6d8ef; font-size:.88rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:25px; }
+    .chip { padding:8px 12px; border:1px solid var(--line); border-radius:999px; color:#c6d8ef; background:rgba(13,27,45,.65); }
+    .note { margin-top:24px; padding:18px 20px; border-left:3px solid var(--gold); color:var(--muted); background:rgba(13,27,45,.6); }
+    footer { padding:48px 0 70px; color:var(--muted); border-top:1px solid var(--line); margin-top:44px; }
+    @media (max-width:720px) { .navlinks { display:none; } .grid { grid-template-columns:1fr; } header { padding-top:58px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav><a class="brand" href="#top">AGK / PORTFOLIO</a><div class="navlinks"><a href="#projects">Projects</a><a href="#skills">Technologies</a><a href="https://github.com/Alden-Gerald">GitHub</a></div></nav>
+    <header id="top">
+      <div class="eyebrow">Information Systems · Cloud Computing</div>
+      <h1>Building clear systems from real requirements.</h1>
+      <p class="lead">I’m Alden Gerald Kusnadi, an Information Systems student at BINUS University. This portfolio brings together selected academic work across cloud architecture, system design, databases, desktop software, and web development.</p>
+      <div class="actions"><a class="button primary" href="#projects">Explore projects</a><a class="button" href="https://github.com/Alden-Gerald">View GitHub profile</a></div>
+    </header>
+    <main>
+      <section id="projects">
+        <div class="eyebrow">Selected work</div>
+        <h2>Academic projects</h2>
+        <p class="section-copy">Every project stays in its own repository, preserving its documentation and history while this page provides one clear entry point.</p>
+        <div class="grid">
+          <a class="card" href="https://github.com/Alden-Gerald/aws-cloud-storage-strategy"><span class="tag">Cloud Computing & AWS</span><h3>AWS Cloud Storage Strategy</h3><p>Architecture case study mapping education-platform workloads to storage services based on latency, scale, durability, access, security, and cost.</p><span class="stack">EBS · S3 · CloudFront · EFS · S3 Glacier · IAM</span></a>
+          <a class="card" href="https://github.com/Alden-Gerald/hampiness-system-design"><span class="tag">System Analysis & Design</span><h3>Hampiness System Design</h3><p>Requirements, process and object modeling, interaction flows, and a proposed three-tier marketplace architecture.</p><span class="stack">DFD · UML · Fishbone analysis · Three-tier architecture</span></a>
+          <a class="card" href="https://github.com/Alden-Gerald/student-registration-javafx"><span class="tag">Database & Desktop</span><h3>Student Registration</h3><p>JavaFX CRUD application with input validation, confirmation feedback, relational persistence, and a separated DAO layer.</p><span class="stack">Java 17 · JavaFX 21 · MySQL · JDBC · DAO</span></a>
+          <a class="card" href="https://github.com/Alden-Gerald/thriftvibe-marketplace"><span class="tag">Web Development & Database</span><h3>ThriftVibe Marketplace</h3><p>Multi-role marketplace prototype covering buyer, seller, and administrator workflows in one database-backed web application.</p><span class="stack">PHP 8+ · MySQL · HTML · CSS · JavaScript · PDO</span></a>
+        </div>
+        <p class="note">Some linked repositories are private. Access can be provided for academic review when appropriate. No production credentials or private records are included.</p>
+      </section>
+      <section id="skills">
+        <div class="eyebrow">Technology</div>
+        <h2>Tools and concepts</h2>
+        <div class="chips"><span class="chip">AWS storage services</span><span class="chip">CloudFront</span><span class="chip">Java</span><span class="chip">JavaFX</span><span class="chip">PHP</span><span class="chip">HTML / CSS / JavaScript</span><span class="chip">MySQL / MariaDB</span><span class="chip">JDBC / PDO</span><span class="chip">UML & DFD</span><span class="chip">DAO pattern</span><span class="chip">Input validation</span><span class="chip">Role-based workflows</span></div>
+      </section>
+    </main>
+    <footer><strong>Alden Gerald Kusnadi</strong><br>Information Systems · BINUS University<br><a href="https://github.com/Alden-Gerald">github.com/Alden-Gerald</a></footer>
+  </div>
+</body>
+</html>
