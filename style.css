@@ -161,6 +161,8 @@ h1 {
   font-size: clamp(1.05rem, 2.4vw, 1.25rem);
 }
 
+.lead + .lead { margin-top: 14px; }
+
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 .button {
