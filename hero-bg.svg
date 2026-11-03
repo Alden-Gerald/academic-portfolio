@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <clipPath id="clip-uni"><polygon points="0,0 1120,0 760,900 0,900"/></clipPath>
+    <clipPath id="clip-tech"><polygon points="1120,0 1600,0 1600,900 760,900"/></clipPath>
+
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#88c0d0" stroke-opacity=".07"/>
+    </pattern>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#a3be8c" fill-opacity=".18"/>
+    </pattern>
+
+    <radialGradient id="glow-uni" cx="24%" cy="76%" r="62%">
+      <stop offset="0" stop-color="#88c0d0" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#88c0d0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-tech" cx="84%" cy="20%" r="56%">
+      <stop offset="0" stop-color="#a3be8c" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#a3be8c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="seam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#88c0d0"/>
+      <stop offset="1" stop-color="#a3be8c"/>
+    </linearGradient>
+    <filter id="blur" x="-30%" y="-5%" width="160%" height="110%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#1f232b"/>
+
+  <!-- University side: blueprint grid, campus hall, cap, open book -->
+  <g clip-path="url(#clip-uni)">
+    <rect width="1600" height="900" fill="#222833"/>
+    <rect width="1600" height="900" fill="url(#grid)"/>
+    <rect width="1600" height="900" fill="url(#glow-uni)"/>
+
+    <g transform="translate(90 380)" fill="#88c0d0" fill-opacity=".06" stroke="#88c0d0" stroke-opacity=".34" stroke-width="2" stroke-linejoin="round">
+      <polygon points="40,150 300,40 560,150"/>
+      <circle cx="300" cy="106" r="18"/>
+      <rect x="40" y="150" width="520" height="34"/>
+      <g>
+        <rect x="70" y="194" width="30" height="178"/><rect x="64" y="184" width="42" height="10"/><rect x="64" y="372" width="42" height="10"/>
+        <rect x="142" y="194" width="30" height="178"/><rect x="136" y="184" width="42" height="10"/><rect x="136" y="372" width="42" height="10"/>
+        <rect x="214" y="194" width="30" height="178"/><rect x="208" y="184" width="42" height="10"/><rect x="208" y="372" width="42" height="10"/>
+        <rect x="286" y="194" width="30" height="178"/><rect x="280" y="184" width="42" height="10"/><rect x="280" y="372" width="42" height="10"/>
+        <rect x="358" y="194" width="30" height="178"/><rect x="352" y="184" width="42" height="10"/><rect x="352" y="372" width="42" height="10"/>
+        <rect x="430" y="194" width="30" height="178"/><rect x="424" y="184" width="42" height="10"/><rect x="424" y="372" width="42" height="10"/>
+        <rect x="502" y="194" width="30" height="178"/><rect x="496" y="184" width="42" height="10"/><rect x="496" y="372" width="42" height="10"/>
+      </g>
+      <rect x="20" y="382" width="560" height="16"/>
+      <rect x="0" y="398" width="600" height="16"/>
+      <rect x="-20" y="414" width="640" height="16"/>
+    </g>
+
+    <g transform="translate(40 92) scale(.75)" fill="none" stroke="#88c0d0" stroke-opacity=".38" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+      <polygon points="0,40 110,0 220,40 110,80" fill="#88c0d0" fill-opacity=".07"/>
+      <path d="M44 62 v44 c0 22 132 22 132 0 v-44"/>
+      <path d="M204 46 v58"/>
+      <circle cx="204" cy="110" r="6"/>
+    </g>
+
+    <g transform="translate(620 84)" fill="none" stroke="#88c0d0" stroke-opacity=".3" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M0 22 C42 0 92 0 132 22 V112 C92 92 42 92 0 112 Z" fill="#88c0d0" fill-opacity=".05"/>
+      <path d="M132 22 C172 0 222 0 264 22 V112 C222 92 172 92 132 112" fill="#88c0d0" fill-opacity=".05"/>
+      <path d="M22 44 C48 34 76 34 104 44 M22 64 C48 54 76 54 104 64 M160 44 C188 34 216 34 242 44 M160 64 C188 54 216 54 242 64" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Tech side: editor window, architecture nodes, server rack -->
+  <g clip-path="url(#clip-tech)">
+    <rect width="1600" height="900" fill="#212825"/>
+    <rect width="1600" height="900" fill="url(#dots)"/>
+    <rect width="1600" height="900" fill="url(#glow-tech)"/>
+
+    <g transform="translate(1130 62) scale(.7)">
+      <rect width="440" height="250" rx="16" fill="#2e3440" fill-opacity=".55" stroke="#a3be8c" stroke-opacity=".38" stroke-width="2"/>
+      <path d="M0 44 H440" stroke="#a3be8c" stroke-opacity=".22" stroke-width="2"/>
+      <circle cx="26" cy="22" r="6" fill="#bf616a" fill-opacity=".65"/>
+      <circle cx="46" cy="22" r="6" fill="#ebcb8b" fill-opacity=".65"/>
+      <circle cx="66" cy="22" r="6" fill="#a3be8c" fill-opacity=".65"/>
+      <g fill-opacity=".6">
+        <rect x="28" y="74" width="110" height="10" rx="5" fill="#b48ead"/>
+        <rect x="146" y="74" width="70" height="10" rx="5" fill="#88c0d0"/>
+        <rect x="224" y="74" width="90" height="10" rx="5" fill="#d8dee9" fill-opacity=".4"/>
+        <rect x="52" y="102" width="150" height="10" rx="5" fill="#a3be8c"/>
+        <rect x="210" y="102" width="60" height="10" rx="5" fill="#d8dee9" fill-opacity=".4"/>
+        <rect x="52" y="130" width="90" height="10" rx="5" fill="#88c0d0"/>
+        <rect x="150" y="130" width="130" height="10" rx="5" fill="#d8dee9" fill-opacity=".4"/>
+        <rect x="76" y="158" width="180" height="10" rx="5" fill="#ebcb8b"/>
+        <rect x="52" y="186" width="60" height="10" rx="5" fill="#b48ead"/>
+        <rect x="120" y="186" width="120" height="10" rx="5" fill="#88c0d0"/>
+        <rect x="28" y="214" width="50" height="10" rx="5" fill="#a3be8c"/>
+      </g>
+    </g>
+
+    <g stroke="#a3be8c" stroke-opacity=".3" stroke-width="2" fill="none">
+      <path d="M1000 770 L1160 700 L1340 750 L1500 690"/>
+      <path d="M1000 770 L1180 840 L1340 750 L1500 820"/>
+      <path d="M1160 700 L1180 840"/>
+    </g>
+    <g fill="#1f232b" stroke="#a3be8c" stroke-opacity=".6" stroke-width="2">
+      <circle cx="1000" cy="770" r="13"/>
+      <rect x="1146" y="686" width="28" height="28" rx="7"/>
+      <rect x="1166" y="826" width="28" height="28" rx="7"/>
+      <circle cx="1340" cy="750" r="13"/>
+      <rect x="1486" y="676" width="28" height="28" rx="7"/>
+      <rect x="1486" y="806" width="28" height="28" rx="7"/>
+    </g>
+    <g fill="#a3be8c" fill-opacity=".7">
+      <circle cx="1000" cy="770" r="4"/><circle cx="1340" cy="750" r="4"/>
+      <circle cx="1160" cy="700" r="4"/><circle cx="1180" cy="840" r="4"/>
+      <circle cx="1500" cy="690" r="4"/><circle cx="1500" cy="820" r="4"/>
+    </g>
+
+    <g transform="translate(1410 400)" fill="#2e3440" fill-opacity=".55" stroke="#88c0d0" stroke-opacity=".36" stroke-width="2">
+      <rect width="150" height="58" rx="9"/>
+      <rect y="72" width="150" height="58" rx="9"/>
+      <rect y="144" width="150" height="58" rx="9"/>
+      <g fill="#a3be8c" fill-opacity=".75" stroke="none">
+        <circle cx="22" cy="29" r="4.5"/><circle cx="22" cy="101" r="4.5"/><circle cx="22" cy="173" r="4.5"/>
+      </g>
+      <g stroke="#88c0d0" stroke-opacity=".3" stroke-width="3" stroke-linecap="round">
+        <path d="M54 22 H128 M54 36 H110 M54 94 H128 M54 108 H100 M54 166 H128 M54 180 H116"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Diagonal seam -->
+  <g>
+    <line x1="1120" y1="0" x2="760" y2="900" stroke="url(#seam)" stroke-width="14" stroke-opacity=".5" filter="url(#blur)"/>
+    <line x1="1160" y1="0" x2="800" y2="900" stroke="#a3be8c" stroke-opacity=".14" stroke-width="2"/>
+    <line x1="1200" y1="0" x2="840" y2="900" stroke="#a3be8c" stroke-opacity=".08" stroke-width="2"/>
+    <line x1="1120" y1="0" x2="760" y2="900" stroke="url(#seam)" stroke-width="3"/>
+  </g>
+</svg>

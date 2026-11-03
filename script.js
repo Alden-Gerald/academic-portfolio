@@ -33,3 +33,28 @@ if ("IntersectionObserver" in window && sections.length > 0) {
   sections.forEach((section) => observer.observe(section));
 }
 
+
+// Hero artwork drifts slowly as the page scrolls. Skipped for reduced motion.
+const heroArt = document.querySelector(".hero__bg");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (heroArt && !reduceMotion) {
+  let waiting = false;
+
+  const drift = () => {
+    const offset = Math.min(window.scrollY, 720) * 0.18;
+    heroArt.style.transform = `translate3d(0, ${offset}px, 0)`;
+    waiting = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!waiting) {
+        waiting = true;
+        window.requestAnimationFrame(drift);
+      }
+    },
+    { passive: true },
+  );
+}
