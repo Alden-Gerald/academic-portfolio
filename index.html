@@ -3,10 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Alden Gerald Kusnadi's portfolio of information systems, cloud computing, software, and local AI projects.">
+  <title>Alden Gerald Kusnadi | Academic Portfolio</title>
+  <meta name="description" content="Alden Gerald Kusnadi, Information Systems student at BINUS University. Portfolio of a local-first AI workspace plus cloud, system design, and database projects.">
+  <meta name="author" content="Alden Gerald Kusnadi">
   <meta name="theme-color" content="#1f232b">
   <meta name="color-scheme" content="dark">
-  <title>Alden Gerald Kusnadi | Academic Portfolio</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alden Gerald Kusnadi | Academic Portfolio">
+  <meta property="og:description" content="A local-first AI workspace plus cloud, system design, and database projects, from an Information Systems student at BINUS University.">
+  <meta property="og:url" content="https://alden-gerald.github.io/academic-portfolio/">
+  <meta property="og:image" content="https://alden-gerald.github.io/academic-portfolio/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alden Gerald Kusnadi, Information Systems student: I turn complex requirements into systems people can actually use.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
@@ -22,8 +35,8 @@
       <a class="brand" href="#top" translate="no">Alden Gerald</a>
       <nav aria-label="Primary navigation">
         <ul class="navlinks">
-          <li><a href="#university">University</a></li>
           <li><a href="#personal">Personal</a></li>
+          <li><a href="#university">University</a></li>
           <li><a href="#skills">Tools</a></li>
           <li><a href="https://www.canva.com/design/DAHWHNhUkzI/Ov6pu36KBYYRnV_do8Z2TQ/view">CV</a></li>
         </ul>
@@ -37,28 +50,58 @@
         <div class="hero__copy">
           <p class="kicker">Information Systems student, BINUS University</p>
           <h1 id="hero-title">I turn complex requirements into systems people can actually use.</h1>
-          <p class="lead">I’m Alden Gerald Kusnadi, with a focus on cloud computing. I enjoy following a problem from its requirements and architecture through to the data, code, and interface. Here are a few projects that show how I work.</p>
+          <p class="lead">I’m Alden Gerald Kusnadi, with a focus on cloud computing. I take a problem from requirements and architecture through to data, code, and interface. Below are <span translate="no">Lumina</span>, a local-first AI workspace I built on my own, and four university projects in cloud storage, system design, and database applications. Every repository is public.</p>
           <div class="actions">
-            <a class="button button--primary" href="#university">Browse University Projects</a>
-            <a class="button" href="#personal">See Personal Projects</a>
+            <a class="button button--primary" href="#personal">View Lumina</a>
+            <a class="button" href="#university">University Projects</a>
             <a class="button" href="https://github.com/Alden-Gerald">GitHub Profile</a>
           </div>
         </div>
 
         <ul class="split" aria-label="Project groups">
           <li>
-            <a class="split__item split__item--university" href="#university">
-              <span class="split__title">University Projects</span>
-              <span class="split__text">Four BINUS coursework projects across cloud architecture, system design, databases, and web development.</span>
+            <a class="split__item split__item--personal" href="#personal">
+              <span class="split__title">Personal Projects</span>
+              <span class="split__text">A local AI workspace I designed, built, and tested myself, outside of coursework.</span>
             </a>
           </li>
           <li>
-            <a class="split__item split__item--personal" href="#personal">
-              <span class="split__title">Personal Projects</span>
-              <span class="split__text">Self-directed work in local AI and developer tools, built outside of coursework.</span>
+            <a class="split__item split__item--university" href="#university">
+              <span class="split__title">University Projects</span>
+              <span class="split__text">Four BINUS projects across cloud architecture, system design, databases, and web development.</span>
             </a>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section section--personal" id="personal" aria-labelledby="personal-title">
+      <div class="shell">
+        <div class="section__head">
+          <h2 id="personal-title">Personal Projects</h2>
+          <p class="section__copy">Started on my own to replace cloud AI services I use every day with something that runs on my machine.</p>
+        </div>
+
+        <a class="card card--featured" href="https://github.com/Alden-Gerald/Lumina">
+          <div class="card__body">
+            <span class="tag">Local AI &amp; Developer Tools</span>
+            <h3 translate="no">Lumina</h3>
+            <p>A private, local-first workspace for chat, study, document work, and bounded coding tasks, powered by local models through Ollama. It has four workspaces: Chat, Code, Files, and Control.</p>
+            <dl class="facts">
+              <div><dt>Role</dt><dd>Sole author, from design to testing.</dd></div>
+              <div><dt>Decision</dt><dd>Coding tasks run in disposable Git workspaces. Changes are validated first, then applied through a guarded step that verifies and backs up the source files.</dd></div>
+              <div><dt>Result</dt><dd>Works with PDF, Office, CSV, and image attachments, and ships with a Python unit test suite.</dd></div>
+            </dl>
+            <ul class="stack" aria-label="Technologies">
+              <li>Python</li><li>Ollama</li><li>Git workspaces</li><li>MCP</li><li>Web interface</li><li>unittest</li>
+            </ul>
+            <span class="project-link">View repository</span>
+          </div>
+          <figure class="screenshot">
+            <img src="https://raw.githubusercontent.com/Alden-Gerald/Lumina/main/docs/assets/lumina-code-workspace.png" width="1600" height="1000" alt="Lumina's code workspace showing local model controls, a task conversation, and file attachments" loading="lazy" decoding="async">
+            <figcaption>Lumina’s code workspace, from the project repository.</figcaption>
+          </figure>
+        </a>
       </div>
     </section>
 
@@ -66,7 +109,7 @@
       <div class="shell">
         <div class="section__head">
           <h2 id="university-title">University Projects</h2>
-          <p class="section__copy">Coursework from my Information Systems degree. Each link opens the project repository, where the documentation and development history live.</p>
+          <p class="section__copy">Coursework from my Information Systems degree. Each card says what I did and what the project delivered, and links to the public repository.</p>
         </div>
 
         <ul class="grid">
@@ -75,6 +118,11 @@
               <span class="tag">Cloud Computing &amp; AWS</span>
               <h3>AWS Cloud Storage Strategy</h3>
               <p>An architecture case study that matches education-platform workloads to storage services by weighing latency, scale, durability, access, security, and cost.</p>
+              <dl class="facts">
+                <div><dt>Role</dt><dd>Individual case study.</dd></div>
+                <div><dt>Decision</dt><dd>One storage service per workload instead of one for everything, held together by IAM, lifecycle policies, and naming conventions.</dd></div>
+                <div><dt>Result</dt><dd>A recommendation per workload, with an architecture diagram.</dd></div>
+              </dl>
               <ul class="stack" aria-label="Technologies">
                 <li>EBS</li><li>S3</li><li>CloudFront</li><li>EFS</li><li>S3 Glacier</li><li>IAM</li>
               </ul>
@@ -87,6 +135,11 @@
               <span class="tag">System Analysis &amp; Design</span>
               <h3><span translate="no">Hampiness</span> System Design</h3>
               <p>A system-design study that moves from requirements and root-cause analysis to process models, interactions, and a proposed three-tier marketplace architecture.</p>
+              <dl class="facts">
+                <div><dt>Role</dt><dd>Team project. I covered system analysis and design: requirements, process and object modeling, and architecture.</dd></div>
+                <div><dt>Decision</dt><dd>A three-tier architecture, to keep layers separate for maintainability, security, and future scale.</dd></div>
+                <div><dt>Result</dt><dd>Fishbone analysis, DFDs, use cases, and class, sequence, and activity diagrams.</dd></div>
+              </dl>
               <ul class="stack" aria-label="Technologies">
                 <li>DFD</li><li>UML</li><li>Fishbone analysis</li><li>Three-tier architecture</li>
               </ul>
@@ -98,7 +151,11 @@
             <a class="card" href="https://github.com/Alden-Gerald/student-registration-javafx">
               <span class="tag">Database &amp; Desktop</span>
               <h3>Student Registration</h3>
-              <p>A JavaFX CRUD application built around clear validation, useful confirmation feedback, relational persistence, and a separate data-access layer.</p>
+              <p>A JavaFX desktop app for creating and updating student registration records, with validation and clear confirmation feedback.</p>
+              <dl class="facts">
+                <div><dt>Decision</dt><dd>A separate DAO layer keeps interface code apart from database access. Database credentials come from environment variables.</dd></div>
+                <div><dt>Result</dt><dd>Full create, read, update, and clear flow over MySQL, with a schema file for setup. The public copy holds no real student records.</dd></div>
+              </dl>
               <ul class="stack" aria-label="Technologies">
                 <li>Java 17</li><li>JavaFX 21</li><li>MySQL</li><li>JDBC</li><li>DAO</li>
               </ul>
@@ -110,7 +167,12 @@
             <a class="card" href="https://github.com/Alden-Gerald/thriftvibe-marketplace">
               <span class="tag">Web Development &amp; Database</span>
               <h3><span translate="no">ThriftVibe</span> Marketplace</h3>
-              <p>A database-backed marketplace prototype that brings buyer, seller, and administrator journeys together in one web application.</p>
+              <p>A database-backed thrift marketplace prototype that brings buyer, seller, and administrator journeys together in one web application.</p>
+              <dl class="facts">
+                <div><dt>Role</dt><dd>Team project. I turned marketplace flows into working pages and connected them to server-side logic and MySQL.</dd></div>
+                <div><dt>Decision</dt><dd>All queries go through PDO prepared statements. The public copy ships the schema only, with no credentials or user data.</dd></div>
+                <div><dt>Result</dt><dd>Three role-based workflows: browsing through checkout, seller tools, and admin moderation.</dd></div>
+              </dl>
               <ul class="stack" aria-label="Technologies">
                 <li>PHP 8+</li><li>MySQL</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PDO</li>
               </ul>
@@ -121,38 +183,11 @@
       </div>
     </section>
 
-    <section class="section section--personal" id="personal" aria-labelledby="personal-title">
-      <div class="shell">
-        <div class="section__head">
-          <h2 id="personal-title">Personal Projects</h2>
-          <p class="section__copy">Projects I started on my own to explore local AI and developer tooling.</p>
-        </div>
-
-        <a class="card card--featured" href="https://github.com/Alden-Gerald/Lumina">
-          <div class="card__body">
-            <span class="tag">Local AI &amp; Developer Tools</span>
-            <h3 translate="no">Lumina</h3>
-            <p>A private AI, local-first workspace for chat, study, document work, and bounded coding tasks powered by Ollama. Lumina combines local model inference with disposable Git workspaces, visible validation, diff review, and a guarded step for applying verified changes.</p>
-            <ul class="stack" aria-label="Technologies">
-              <li>Python</li><li>Local models</li><li>Git workspaces</li><li>MCP</li><li>Web interface</li>
-            </ul>
-            <span class="project-link">View repository</span>
-          </div>
-          <figure class="screenshot">
-            <img src="https://raw.githubusercontent.com/Alden-Gerald/Lumina/main/docs/assets/lumina-code-workspace.png" width="1600" height="1000" alt="Lumina's code workspace showing local model controls, a task conversation, and file attachments" loading="lazy" decoding="async">
-            <figcaption>Lumina’s code workspace, from the project repository.</figcaption>
-          </figure>
-        </a>
-
-        <p class="note">Some linked repositories may be private. I can provide access for academic review when appropriate; production credentials and private records are never included.</p>
-      </div>
-    </section>
-
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="shell">
         <div class="section__head">
           <h2 id="skills-title">Tools &amp; Concepts</h2>
-          <p class="section__copy">Coursework and personal projects have given me hands-on experience across architecture, implementation, and the checks that make software safer to change.</p>
+          <p class="section__copy">Each group maps to projects above: cloud and architecture to the AWS and <span translate="no">Hampiness</span> work, data and languages to the database apps, local AI to <span translate="no">Lumina</span>.</p>
         </div>
 
         <div class="skills">
@@ -177,13 +212,13 @@
           <section class="skill-group" aria-labelledby="skills-practice">
             <h3 id="skills-practice">Engineering Practice</h3>
             <ul class="chips">
-              <li>UML &amp; DFD</li><li>DAO pattern</li><li>Input validation</li><li>Role-based workflows</li>
+              <li>UML &amp; DFD</li><li>DAO pattern</li><li>Input validation</li><li>Prepared statements</li><li>Role-based workflows</li>
             </ul>
           </section>
           <section class="skill-group" aria-labelledby="skills-ai">
             <h3 id="skills-ai">Local AI &amp; Tooling</h3>
             <ul class="chips">
-              <li>Local AI workflows</li><li>Ollama</li><li>Git</li><li>MCP</li>
+              <li>Local model inference</li><li>Ollama</li><li>Git workspaces</li><li>MCP</li><li>Unit testing</li>
             </ul>
           </section>
         </div>

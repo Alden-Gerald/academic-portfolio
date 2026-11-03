@@ -282,6 +282,11 @@ h2::before {
 
 .card p { margin-top: 12px; color: var(--muted); }
 
+.facts { display: grid; gap: 12px; margin: 18px 0 0; }
+.facts > div { display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); gap: 14px; }
+.facts dt { color: var(--accent); font-weight: 700; font-size: .95rem; }
+.facts dd { margin: 0; min-width: 0; color: var(--text-soft); font-size: .98rem; line-height: 1.55; }
+
 .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 22px; }
 .stack li {
   padding: 4px 11px;
@@ -320,17 +325,6 @@ h2::before {
 }
 .screenshot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: var(--raised); }
 .screenshot figcaption { padding: 10px 14px; color: var(--muted); font-size: .85rem; line-height: 1.5; }
-
-.note {
-  max-width: 78ch;
-  margin-top: 28px;
-  padding: 16px 20px;
-  border-left: 4px solid var(--focus);
-  border-radius: 0 10px 10px 0;
-  background: var(--bg);
-  color: var(--muted);
-  font-size: .95rem;
-}
 
 /* Skills */
 .skills { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
@@ -407,6 +401,7 @@ h2::before {
   .actions .button { width: 100%; justify-content: center; }
   .card { padding: 22px; }
   .card--featured { padding: 18px; }
+  .facts > div { grid-template-columns: 1fr; gap: 2px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
