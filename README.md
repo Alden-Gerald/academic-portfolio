@@ -7,12 +7,6 @@
 
 I'm Alden Gerald Kusnadi, an Information Systems student at BINUS University with a focus on cloud computing. This repository is the source of my portfolio site. Each project lives in its own public repository, so its source code, documentation, and history stay intact.
 
-## Personal Projects
-
-| Project | What it is | Technologies |
-| --- | --- | --- |
-| [Lumina](https://github.com/Alden-Gerald/Lumina) | A private, local-first workspace for chat, study, document work, and bounded coding tasks, built on my own to replace cloud AI services I use daily. Coding tasks run in disposable Git workspaces and are validated before a guarded apply step. | Python, Ollama, Git workspaces, MCP, unittest |
-
 ## University Projects
 
 | Project | Summary | Technologies |
@@ -21,6 +15,12 @@ I'm Alden Gerald Kusnadi, an Information Systems student at BINUS University wit
 | [Hampiness: Information System Design](https://github.com/Alden-Gerald/hampiness-system-design) | Team project where I covered system analysis and design: requirements, root-cause analysis, process and object models, and a proposed three-tier marketplace architecture. | Fishbone analysis, DFD, UML, three-tier architecture |
 | [Student Registration: JavaFX + MySQL](https://github.com/Alden-Gerald/student-registration-javafx) | Desktop CRUD application with input validation, confirmation feedback, and a separate DAO layer. | Java 17, JavaFX 21, MySQL/MariaDB, JDBC, DAO |
 | [ThriftVibe Marketplace](https://github.com/Alden-Gerald/thriftvibe-marketplace) | Team project with buyer, seller, and administrator workflows, where I built working pages and connected them to server-side logic and MySQL using PDO prepared statements. | PHP 8+, MySQL/MariaDB, HTML, CSS, JavaScript, PDO |
+
+## Personal Projects
+
+| Project | What it is | Technologies |
+| --- | --- | --- |
+| [Lumina](https://github.com/Alden-Gerald/Lumina) | A private, local-first workspace for chat, study, document work, and bounded coding tasks, built on my own to replace cloud AI services I use daily. Coding tasks run in disposable Git workspaces and are validated before a guarded apply step. | Python, Ollama, Git workspaces, MCP, unittest |
 
 ## Technologies
 
