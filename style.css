@@ -236,10 +236,9 @@ h1 {
 
 /* Sections */
 .section { padding-block: clamp(56px, 9vw, 104px); border-top: 1px solid var(--line); }
-.section--university { --accent: var(--university); background: var(--bg); }
 /* The first section rises into the hero on the same slant as the artwork's seam */
-.section--personal {
-  --accent: var(--personal);
+.section--university {
+  --accent: var(--university);
   position: relative;
   z-index: 1;
   margin-top: calc(var(--slant) * -1);
@@ -248,6 +247,7 @@ h1 {
   background: var(--surface);
   clip-path: polygon(0 var(--slant), 100% 0, 100% 100%, 0 100%);
 }
+.section--personal { --accent: var(--personal); background: var(--bg); }
 
 .section__head { max-width: 62ch; margin-bottom: clamp(28px, 4vw, 44px); }
 
@@ -303,7 +303,7 @@ h2::before {
 .card:hover { transform: translateY(-3px); }
 .card:hover::after, .card:focus-visible::after { opacity: 1; }
 
-.section--personal .card { background: var(--bg); }
+.section--university .card { background: var(--bg); }
 
 .tag { color: var(--accent); font-weight: 700; font-size: .95rem; }
 
