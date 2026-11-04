@@ -184,3 +184,44 @@ document.querySelectorAll(".gallery").forEach((gallery) => {
 
   update();
 });
+
+
+// Demo videos play only while they are visible, and every one can be paused.
+// With reduced motion they stay paused until the visitor presses play.
+const demoVideos = [...document.querySelectorAll(".slide video")];
+const setToggle = (video) => {
+  const button = video.parentElement.querySelector(".slide__toggle");
+  if (!button) return;
+  button.textContent = video.paused ? "▶" : "❚❚";
+  button.setAttribute("aria-label", video.paused ? "Play demo" : "Pause demo");
+};
+
+demoVideos.forEach((video) => {
+  const button = video.parentElement.querySelector(".slide__toggle");
+  video.addEventListener("play", () => setToggle(video));
+  video.addEventListener("pause", () => setToggle(video));
+  if (button) {
+    button.addEventListener("click", () => {
+      video.dataset.userPaused = video.paused ? "" : "1";
+      if (video.paused) video.play().catch(() => {}); else video.pause();
+    });
+  }
+  video.addEventListener("click", () => button && button.click());
+  setToggle(video);
+});
+
+if ("IntersectionObserver" in window && !noMotion) {
+  const watcher = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) {
+          if (!target.dataset.userPaused) target.play().catch(() => {});
+        } else {
+          target.pause();
+        }
+      });
+    },
+    { threshold: 0.6 },
+  );
+  demoVideos.forEach((video) => watcher.observe(video));
+}
