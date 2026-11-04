@@ -47,7 +47,7 @@
         <ul class="navlinks">
           <li><a href="#university">University</a></li>
           <li><a href="#personal">Personal</a></li>
-          <li><a href="#skills">Tools</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="https://github.com/Alden-Gerald">GitHub</a></li>
           <li><a href="https://www.canva.com/design/DAHWHNhUkzI/Ov6pu36KBYYRnV_do8Z2TQ/view">CV</a></li>
         </ul>
@@ -296,43 +296,59 @@
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="shell">
         <div class="section__head">
-          <h2 id="skills-title">Tools &amp; Concepts</h2>
-          <p class="section__copy">Each group maps to projects above: cloud and architecture to the AWS and <span translate="no">Hampiness</span> work, data and languages to the database apps, local AI to <span translate="no">Lumina</span>.</p>
-        </div>
-
-        <div class="skills">
-          <section class="skill-group" aria-labelledby="skills-cloud">
-            <h3 id="skills-cloud">Cloud &amp; Architecture</h3>
-            <ul class="chips">
-              <li>AWS storage services</li><li>CloudFront</li><li>IAM</li><li>Three-tier architecture</li>
-            </ul>
-          </section>
-          <section class="skill-group" aria-labelledby="skills-code">
-            <h3 id="skills-code">Languages</h3>
-            <ul class="chips">
-              <li>Python</li><li>Java &amp; JavaFX</li><li>PHP</li><li>HTML / CSS / JavaScript</li>
-            </ul>
-          </section>
-          <section class="skill-group" aria-labelledby="skills-data">
-            <h3 id="skills-data">Data</h3>
-            <ul class="chips">
-              <li>MySQL / MariaDB</li><li>JDBC / PDO</li><li>Relational schema design</li>
-            </ul>
-          </section>
-          <section class="skill-group" aria-labelledby="skills-practice">
-            <h3 id="skills-practice">Engineering Practice</h3>
-            <ul class="chips">
-              <li>UML &amp; DFD</li><li>DAO pattern</li><li>Input validation</li><li>Prepared statements</li><li>Role-based workflows</li>
-            </ul>
-          </section>
-          <section class="skill-group" aria-labelledby="skills-ai">
-            <h3 id="skills-ai">Local AI &amp; Tooling</h3>
-            <ul class="chips">
-              <li>Local model inference</li><li>Ollama</li><li>Git workspaces</li><li>MCP</li><li>Unit testing</li>
-            </ul>
-          </section>
+          <h2 id="skills-title">Concepts &amp; Programming Languages</h2>
+          <p class="section__copy">Each group maps to projects above: languages and data to the database apps, cloud and architecture to the AWS and <span translate="no">Hampiness</span> work, local AI to <span translate="no">Lumina</span>.</p>
         </div>
       </div>
+      <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Skill groups">
+            <ul class="gallery__track" tabindex="0" aria-label="Scroll sideways to see more">
+              <li class="slide"><figure>
+                <div class="slide__frame skill-card" role="group" aria-labelledby="skills-code">
+                  <div class="skill-card__text"><h3 id="skills-code">Languages</h3><ul class="chips"><li>Python</li><li>Java &amp; JavaFX</li><li>PHP</li><li>HTML / CSS / JavaScript</li></ul></div>
+                  <div class="art art--code" aria-hidden="true"><i style="--w:60%;--x:0%;--d:0s"></i><i style="--w:82%;--x:4%;--d:0.25s"></i><i style="--w:48%;--x:4%;--d:0.5s"></i><i style="--w:74%;--x:0%;--d:0.75s"></i><i style="--w:36%;--x:4%;--d:1s"></i><i style="--w:66%;--x:8%;--d:1.25s"></i><i style="--w:52%;--x:4%;--d:1.5s"></i></div>
+                </div>
+                <figcaption>Used in Student Registration, ThriftVibe, Hampiness, and Lumina.</figcaption>
+              </figure></li>
+              <li class="slide"><figure>
+                <div class="slide__frame skill-card" role="group" aria-labelledby="skills-data">
+                  <div class="skill-card__text"><h3 id="skills-data">Data</h3><ul class="chips"><li>MySQL / MariaDB</li><li>JDBC / PDO</li><li>Relational schema design</li></ul></div>
+                  <div class="art art--data" aria-hidden="true"><i style="--d:0s"></i><i style="--d:0.3s"></i><i style="--d:0.6s"></i><i style="--d:0.9s"></i><i style="--d:1.2s"></i></div>
+                </div>
+                <figcaption>Behind the database-backed apps: ThriftVibe and Student Registration.</figcaption>
+              </figure></li>
+              <li class="slide"><figure>
+                <div class="slide__frame skill-card" role="group" aria-labelledby="skills-cloud">
+                  <div class="skill-card__text"><h3 id="skills-cloud">Cloud &amp; Architecture</h3><ul class="chips"><li>AWS storage services</li><li>CloudFront</li><li>IAM</li><li>Three-tier architecture</li></ul></div>
+                  <svg class="art art--svg" viewBox="0 0 240 180" aria-hidden="true">
+  <g class="links"><line x1="60" y1="120" x2="120" y2="60"/><line x1="120" y1="60" x2="182" y2="120"/><line x1="60" y1="120" x2="182" y2="120"/><line x1="120" y1="60" x2="120" y2="150"/></g>
+  <g class="nodes"><circle class="float" style="--d:0s" cx="60" cy="120" r="20"/><circle class="float" style="--d:-1s" cx="120" cy="60" r="26"/><circle class="float" style="--d:-2s" cx="182" cy="120" r="20"/><circle class="float" style="--d:-.5s" cx="120" cy="150" r="12"/></g>
+</svg>
+                </div>
+                <figcaption>From the AWS storage case study and the Hampiness system design.</figcaption>
+              </figure></li>
+              <li class="slide"><figure>
+                <div class="slide__frame skill-card" role="group" aria-labelledby="skills-practice">
+                  <div class="skill-card__text"><h3 id="skills-practice">Engineering Practice</h3><ul class="chips"><li>UML &amp; DFD</li><li>DAO pattern</li><li>Input validation</li><li>Prepared statements</li><li>Role-based workflows</li></ul></div>
+                  <svg class="art art--svg" viewBox="0 0 240 180" aria-hidden="true">
+  <g class="links"><line x1="80" y1="52" x2="160" y2="52"/><line x1="40" y1="76" x2="40" y2="116"/><line x1="200" y1="76" x2="200" y2="116"/><line x1="76" y1="140" x2="164" y2="140"/></g>
+  <g class="boxes"><rect class="pulse" style="--d:0s" x="10" y="30" width="70" height="46" rx="8"/><rect class="pulse" style="--d:-.6s" x="160" y="30" width="70" height="46" rx="8"/><rect class="pulse" style="--d:-1.2s" x="10" y="116" width="70" height="46" rx="8"/><rect class="pulse" style="--d:-1.8s" x="160" y="116" width="70" height="46" rx="8"/></g>
+</svg>
+                </div>
+                <figcaption>Habits that show up in every project above.</figcaption>
+              </figure></li>
+              <li class="slide"><figure>
+                <div class="slide__frame skill-card" role="group" aria-labelledby="skills-ai">
+                  <div class="skill-card__text"><h3 id="skills-ai">Local AI &amp; Tooling</h3><ul class="chips"><li>Local model inference</li><li>Ollama</li><li>Git workspaces</li><li>MCP</li><li>Unit testing</li></ul></div>
+                  <svg class="art art--svg" viewBox="0 0 240 180" aria-hidden="true"><g class="links"><line x1="50" y1="60" x2="120" y2="35"/><line x1="50" y1="60" x2="120" y2="90"/><line x1="50" y1="60" x2="120" y2="145"/><line x1="50" y1="120" x2="120" y2="35"/><line x1="50" y1="120" x2="120" y2="90"/><line x1="50" y1="120" x2="120" y2="145"/><line x1="120" y1="35" x2="190" y2="60"/><line x1="120" y1="35" x2="190" y2="120"/><line x1="120" y1="90" x2="190" y2="60"/><line x1="120" y1="90" x2="190" y2="120"/><line x1="120" y1="145" x2="190" y2="60"/><line x1="120" y1="145" x2="190" y2="120"/></g><g class="nodes"><circle class="pulse" style="--d:0.00s" cx="50" cy="60" r="11"/><circle class="pulse" style="--d:-0.35s" cx="50" cy="120" r="11"/><circle class="pulse" style="--d:-0.70s" cx="120" cy="35" r="11"/><circle class="pulse" style="--d:-1.05s" cx="120" cy="90" r="11"/><circle class="pulse" style="--d:-1.40s" cx="120" cy="145" r="11"/><circle class="pulse" style="--d:-1.75s" cx="190" cy="60" r="11"/><circle class="pulse" style="--d:-2.10s" cx="190" cy="120" r="11"/></g></svg>
+                </div>
+                <figcaption>The toolbox behind Lumina.</figcaption>
+              </figure></li>
+            </ul>
+            <div class="gallery__controls">
+              <div class="gallery__dots" role="group" aria-label="Choose group"></div>
+              <button class="gallery__pause" type="button" aria-label="Pause slideshow">❚❚</button>
+            </div>
+          </div>
     </section>
   </main>
 
