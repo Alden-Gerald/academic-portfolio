@@ -6,7 +6,7 @@
   <rect width="1000" height="640" fill="#222833"/>
   <rect width="1000" height="640" fill="url(#g)"/>
   <rect width="1000" height="640" fill="url(#glow)"/>
-  <g transform="translate(630 320) scale(.8)">
+  <g transform="translate(461 320) scale(.95)">
     <rect x="-240" y="-190" width="360" height="330" rx="16" fill="#2e3440" stroke="#88c0d0" stroke-opacity=".7" stroke-width="2"/>
     <path d="M-240 -146 H120" stroke="#4c566a" stroke-width="2"/>
     <circle cx="-216" cy="-168" r="6" fill="#bf616a"/><circle cx="-196" cy="-168" r="6" fill="#ebcb8b"/><circle cx="-176" cy="-168" r="6" fill="#a3be8c"/>

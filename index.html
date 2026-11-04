@@ -93,87 +93,76 @@
           <h2 id="university-title">University Projects</h2>
           <p class="section__copy">Coursework from my Information Systems degree. Each project says what I did and what it delivered, and links to the public repository.</p>
         </div>
-
-        <ul class="projects">
-          <li>
-            <a class="project" href="https://github.com/Alden-Gerald/aws-cloud-storage-strategy">
-              <div class="project__media" aria-hidden="true"><img src="teasers/aws.svg" width="1000" height="640" alt="" loading="lazy" decoding="async"></div>
-              <div class="project__body">
-              <span class="tag">Cloud Computing &amp; AWS</span>
-              <h3>AWS Cloud Storage Strategy</h3>
-              <p>An architecture case study that matches education-platform workloads to storage services by weighing latency, scale, durability, access, security, and cost.</p>
-              <dl class="facts">
-                <div><dt>Role</dt><dd>Individual case study.</dd></div>
-                <div><dt>Decision</dt><dd>One storage service per workload instead of one for everything, held together by IAM, lifecycle policies, and naming conventions.</dd></div>
-                <div><dt>Result</dt><dd>A recommendation per workload, with an architecture diagram.</dd></div>
-              </dl>
-              <ul class="stack" aria-label="Technologies">
-                <li>EBS</li><li>S3</li><li>CloudFront</li><li>EFS</li><li>S3 Glacier</li><li>IAM</li>
-              </ul>
-              <span class="project-link">View repository</span>
+      </div>
+      <div class="tiles">
+        <article class="tile">
+          <div class="tile__text">
+            <p class="tile__eyebrow">Cloud Computing &amp; AWS</p>
+            <h3>AWS Cloud Storage Strategy</h3>
+            <p class="tile__lead">An architecture case study that matches education-platform workloads to storage services by weighing latency, scale, durability, access, security, and cost.</p>
+            <div class="tile__actions">
+              <a class="btn btn--primary" href="https://github.com/Alden-Gerald/aws-cloud-storage-strategy" aria-label="View repository: AWS Cloud Storage Strategy">View repository</a>
+              <a class="btn" href="https://github.com/Alden-Gerald/aws-cloud-storage-strategy#readme" aria-label="Read the README: AWS Cloud Storage Strategy">Read the README</a>
             </div>
-            </a>
-          </li>
-
-          <li>
-            <a class="project" href="https://github.com/Alden-Gerald/hampiness-system-design">
-              <div class="project__media" aria-hidden="true"><img src="teasers/hampiness.svg" width="1000" height="640" alt="" loading="lazy" decoding="async"></div>
-              <div class="project__body">
-              <span class="tag">System Analysis &amp; Design</span>
-              <h3><span translate="no">Hampiness</span> System Design</h3>
-              <p>A system-design study that moves from requirements and root-cause analysis to process models, interactions, and a proposed three-tier marketplace architecture.</p>
-              <dl class="facts">
-                <div><dt>Role</dt><dd>Team project. I covered system analysis and design: requirements, process and object modeling, and architecture.</dd></div>
-                <div><dt>Decision</dt><dd>A three-tier architecture, to keep layers separate for maintainability, security, and future scale.</dd></div>
-                <div><dt>Result</dt><dd>Fishbone analysis, DFDs, use cases, and class, sequence, and activity diagrams.</dd></div>
-              </dl>
-              <ul class="stack" aria-label="Technologies">
-                <li>DFD</li><li>UML</li><li>Fishbone analysis</li><li>Three-tier architecture</li>
-              </ul>
-              <span class="project-link">View repository</span>
+          </div>
+          <figure class="tile__shot">
+            <img src="shots/aws.png" width="1752" height="1058" alt="Architecture diagram: students and staff reach an EC2 application backed by EBS and EFS, and CloudFront serving videos from S3 with a lifecycle policy to S3 Glacier, all governed by IAM" loading="lazy" decoding="async">
+            <figcaption>The project’s architecture diagram, rendered from its repository README.</figcaption>
+          </figure>
+          <dl class="facts"><div><dt>Role</dt><dd>Individual case study.</dd></div><div><dt>Decision</dt><dd>One storage service per workload instead of one for everything, held together by IAM, lifecycle policies, and naming conventions.</dd></div><div><dt>Result</dt><dd>A recommendation per workload, with an architecture diagram.</dd></div></dl>
+          <ul class="stack" aria-label="Technologies"><li>EBS</li><li>S3</li><li>CloudFront</li><li>EFS</li><li>S3 Glacier</li><li>IAM</li></ul>
+        </article>
+        <article class="tile">
+          <div class="tile__text">
+            <p class="tile__eyebrow">System Analysis &amp; Design</p>
+            <h3><span translate="no">Hampiness</span> System Design</h3>
+            <p class="tile__lead">A system-design study that moves from requirements and root-cause analysis to process models, interactions, and a proposed three-tier marketplace architecture.</p>
+            <div class="tile__actions">
+              <a class="btn btn--primary" href="https://github.com/Alden-Gerald/hampiness-system-design" aria-label="View repository: Hampiness System Design">View repository</a>
+              <a class="btn" href="https://github.com/Alden-Gerald/hampiness-system-design#readme" aria-label="Read the README: Hampiness System Design">Read the README</a>
             </div>
-            </a>
-          </li>
-
-          <li>
-            <a class="project" href="https://github.com/Alden-Gerald/student-registration-javafx">
-              <div class="project__media" aria-hidden="true"><img src="teasers/student.svg" width="1000" height="640" alt="" loading="lazy" decoding="async"></div>
-              <div class="project__body">
-              <span class="tag">Database &amp; Desktop</span>
-              <h3>Student Registration</h3>
-              <p>A JavaFX desktop app for creating and updating student registration records, with validation and clear confirmation feedback.</p>
-              <dl class="facts">
-                <div><dt>Decision</dt><dd>A separate DAO layer keeps interface code apart from database access. Database credentials come from environment variables.</dd></div>
-                <div><dt>Result</dt><dd>Full create, read, update, and clear flow over MySQL, with a schema file for setup. The public copy holds no real student records.</dd></div>
-              </dl>
-              <ul class="stack" aria-label="Technologies">
-                <li>Java 17</li><li>JavaFX 21</li><li>MySQL</li><li>JDBC</li><li>DAO</li>
-              </ul>
-              <span class="project-link">View repository</span>
+          </div>
+          <figure class="tile__shot tile__shot--wide">
+            <img src="shots/hamp.png" width="1516" height="414" alt="Architecture diagram: Android and iOS clients connect to an application server, which uses a database server and marketplace services" loading="lazy" decoding="async">
+            <figcaption>The proposed architecture, rendered from the project’s repository README.</figcaption>
+          </figure>
+          <dl class="facts"><div><dt>Role</dt><dd>Team project. I covered system analysis and design: requirements, process and object modeling, and architecture.</dd></div><div><dt>Decision</dt><dd>A three-tier architecture, to keep layers separate for maintainability, security, and future scale.</dd></div><div><dt>Result</dt><dd>Fishbone analysis, DFDs, use cases, and class, sequence, and activity diagrams.</dd></div></dl>
+          <ul class="stack" aria-label="Technologies"><li>DFD</li><li>UML</li><li>Fishbone analysis</li><li>Three-tier architecture</li></ul>
+        </article>
+        <article class="tile">
+          <div class="tile__text">
+            <p class="tile__eyebrow">Database &amp; Desktop</p>
+            <h3>Student Registration</h3>
+            <p class="tile__lead">A JavaFX desktop app for creating and updating student registration records, with validation and clear confirmation feedback.</p>
+            <div class="tile__actions">
+              <a class="btn btn--primary" href="https://github.com/Alden-Gerald/student-registration-javafx" aria-label="View repository: Student Registration">View repository</a>
+              <a class="btn" href="https://github.com/Alden-Gerald/student-registration-javafx#readme" aria-label="Read the README: Student Registration">Read the README</a>
             </div>
-            </a>
-          </li>
-
-          <li>
-            <a class="project" href="https://github.com/Alden-Gerald/thriftvibe-marketplace">
-              <div class="project__media" aria-hidden="true"><img src="teasers/thriftvibe.svg" width="1000" height="640" alt="" loading="lazy" decoding="async"></div>
-              <div class="project__body">
-              <span class="tag">Web Development &amp; Database</span>
-              <h3><span translate="no">ThriftVibe</span> Marketplace</h3>
-              <p>A database-backed thrift marketplace prototype that brings buyer, seller, and administrator journeys together in one web application.</p>
-              <dl class="facts">
-                <div><dt>Role</dt><dd>Team project. I turned marketplace flows into working pages and connected them to server-side logic and MySQL.</dd></div>
-                <div><dt>Decision</dt><dd>All queries go through PDO prepared statements. The public copy ships the schema only, with no credentials or user data.</dd></div>
-                <div><dt>Result</dt><dd>Three role-based workflows: browsing through checkout, seller tools, and admin moderation.</dd></div>
-              </dl>
-              <ul class="stack" aria-label="Technologies">
-                <li>PHP 8+</li><li>MySQL</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PDO</li>
-              </ul>
-              <span class="project-link">View repository</span>
+          </div>
+          <figure class="tile__shot">
+            <img src="teasers/student.svg" width="1000" height="640" alt="Illustration of a registration form with Create, Update, and Clear buttons connected to a MySQL database" loading="lazy" decoding="async">
+            <figcaption>Illustration of the registration flow. A real screenshot is not published yet.</figcaption>
+          </figure>
+          <dl class="facts"><div><dt>Decision</dt><dd>A separate DAO layer keeps interface code apart from database access. Database credentials come from environment variables.</dd></div><div><dt>Result</dt><dd>Full create, read, update, and clear flow over MySQL, with a schema file for setup. The public copy holds no real student records.</dd></div></dl>
+          <ul class="stack" aria-label="Technologies"><li>Java 17</li><li>JavaFX 21</li><li>MySQL</li><li>JDBC</li><li>DAO</li></ul>
+        </article>
+        <article class="tile">
+          <div class="tile__text">
+            <p class="tile__eyebrow">Web Development &amp; Database</p>
+            <h3><span translate="no">ThriftVibe</span> Marketplace</h3>
+            <p class="tile__lead">A database-backed thrift marketplace prototype that brings buyer, seller, and administrator journeys together in one web application.</p>
+            <div class="tile__actions">
+              <a class="btn btn--primary" href="https://github.com/Alden-Gerald/thriftvibe-marketplace" aria-label="View repository: ThriftVibe Marketplace">View repository</a>
+              <a class="btn" href="https://github.com/Alden-Gerald/thriftvibe-marketplace#readme" aria-label="Read the README: ThriftVibe Marketplace">Read the README</a>
             </div>
-            </a>
-          </li>
-        </ul>
+          </div>
+          <figure class="tile__shot">
+            <img src="shots/thriftvibe-login.png" width="1440" height="900" alt="ThriftVibe’s login page, with a sign-in form beside a Video-First Shopping panel" loading="lazy" decoding="async">
+            <figcaption>Screenshot of the running app’s login page.</figcaption>
+          </figure>
+          <dl class="facts"><div><dt>Role</dt><dd>Team project. I turned marketplace flows into working pages and connected them to server-side logic and MySQL.</dd></div><div><dt>Decision</dt><dd>All queries go through PDO prepared statements. The public copy ships the schema only, with no credentials or user data.</dd></div><div><dt>Result</dt><dd>Three role-based workflows: browsing through checkout, seller tools, and admin moderation.</dd></div></dl>
+          <ul class="stack" aria-label="Technologies"><li>PHP 8+</li><li>MySQL</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PDO</li></ul>
+        </article>
       </div>
     </section>
 
@@ -183,28 +172,25 @@
           <h2 id="personal-title">Personal Projects</h2>
           <p class="section__copy">Started on my own to replace cloud AI services I use every day with something that runs on my machine.</p>
         </div>
-
-        <ul class="projects">
-          <li>
-            <a class="project" href="https://github.com/Alden-Gerald/Lumina">
-              <div class="project__media"><img src="https://raw.githubusercontent.com/Alden-Gerald/Lumina/main/docs/assets/lumina-code-workspace.png" width="1600" height="1000" alt="Lumina's code workspace showing local model controls, a task conversation, and file attachments, from the project repository" loading="lazy" decoding="async"></div>
-              <div class="project__body">
-            <span class="tag">Local AI &amp; Developer Tools</span>
-            <h3 translate="no">Lumina</h3>
-            <p>A private, local-first workspace for chat, study, document work, and bounded coding tasks, powered by local models through Ollama. It has four workspaces: Chat, Code, Files, and Control.</p>
-            <dl class="facts">
-              <div><dt>Role</dt><dd>Sole author, from design to testing.</dd></div>
-              <div><dt>Decision</dt><dd>Coding tasks run in disposable Git workspaces. Changes are validated first, then applied through a guarded step that verifies and backs up the source files.</dd></div>
-              <div><dt>Result</dt><dd>Works with PDF, Office, CSV, and image attachments, and ships with a Python unit test suite.</dd></div>
-            </dl>
-            <ul class="stack" aria-label="Technologies">
-              <li>Python</li><li>Ollama</li><li>Git workspaces</li><li>MCP</li><li>Web interface</li><li>unittest</li>
-            </ul>
-            <span class="project-link">View repository</span>
+      </div>
+      <div class="tiles">
+        <article class="tile">
+          <div class="tile__text">
+            <p class="tile__eyebrow">Local AI &amp; Developer Tools</p>
+            <h3><span translate="no">Lumina</span></h3>
+            <p class="tile__lead">A private, local-first workspace for chat, study, document work, and bounded coding tasks, powered by local models through Ollama. It has four workspaces: Chat, Code, Files, and Control.</p>
+            <div class="tile__actions">
+              <a class="btn btn--primary" href="https://github.com/Alden-Gerald/Lumina" aria-label="View repository: Lumina">View repository</a>
+              <a class="btn" href="https://github.com/Alden-Gerald/Lumina#readme" aria-label="Read the README: Lumina">Read the README</a>
+            </div>
           </div>
-            </a>
-          </li>
-        </ul>
+          <figure class="tile__shot">
+            <img src="shots/lumina.png" width="1600" height="1000" alt="Lumina’s code workspace showing local model controls, a task conversation, and file attachments" loading="lazy" decoding="async">
+            <figcaption>Screenshot of Lumina’s code workspace, from the project repository.</figcaption>
+          </figure>
+          <dl class="facts"><div><dt>Role</dt><dd>Sole author, from design to testing.</dd></div><div><dt>Decision</dt><dd>Coding tasks run in disposable Git workspaces. Changes are validated first, then applied through a guarded step that verifies and backs up the source files.</dd></div><div><dt>Result</dt><dd>Works with PDF, Office, CSV, and image attachments, and ships with a Python unit test suite.</dd></div></dl>
+          <ul class="stack" aria-label="Technologies"><li>Python</li><li>Ollama</li><li>Git workspaces</li><li>MCP</li><li>Web interface</li><li>unittest</li></ul>
+        </article>
       </div>
     </section>
 
