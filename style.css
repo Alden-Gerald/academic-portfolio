@@ -276,15 +276,16 @@ h2::before {
 .tile > :not(.tile__bg):not(.tile__bgtoggle) { position: relative; z-index: 1; }
 
 /* The demo recording plays behind the heading, dimmed and faded into the tile colour */
-.tile__bg { position: absolute; inset: 0 0 auto 0; height: min(100%, 780px); z-index: 0; overflow: hidden; pointer-events: none; }
-.tile__bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) saturate(.85) blur(4px); transform: scale(1.04); }
+/* The demo recording is the tile's real background: crisp, only lightly dimmed */
+.tile__bg { position: absolute; inset: 0 0 auto 0; height: min(100%, 1000px); z-index: 0; overflow: hidden; pointer-events: none; }
+.tile__bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(.78) saturate(1.05); }
 .tile__bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, color-mix(in srgb, var(--tile-bg) 72%, transparent) 0%, color-mix(in srgb, var(--tile-bg) 84%, transparent) 55%, var(--tile-bg) 100%);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--tile-bg) 35%, transparent) 0%, color-mix(in srgb, var(--tile-bg) 8%, transparent) 40%, color-mix(in srgb, var(--tile-bg) 55%, transparent) 78%, var(--tile-bg) 100%);
 }
+.tile__text { text-shadow: 0 2px 24px rgba(0, 0, 0, .55); }
 .tile__bgtoggle {
   position: absolute;
   top: 16px;
@@ -361,14 +362,14 @@ h2::before {
 .slide__frame {
   aspect-ratio: 16 / 10;
   background: #14171d;
-  border-radius: 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, .4);
 }
 .slide__frame img { width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
 .slide figcaption { margin-top: 18px; color: var(--muted); font-size: .92rem; line-height: 1.5; text-align: center; text-wrap: balance; }
 
-.gallery__controls { display: flex; align-items: center; justify-content: center; gap: 18px; }
+.gallery__controls { display: flex; align-items: center; justify-content: center; gap: 12px; }
 /* Apple-style slide indicator: a dark pill, dots for the other slides, an elongated bar for the current one */
 .gallery__dots {
   display: flex;
@@ -400,25 +401,27 @@ h2::before {
   transition: width .35s cubic-bezier(.25, .1, .25, 1), background-color .25s ease-out, opacity .25s ease-out;
 }
 .gallery__dot[aria-current="true"] { width: 52px; }
-.gallery__dot[aria-current="true"]::before { width: 44px; background: var(--text); opacity: 1; }
-.gallery__btn {
+.gallery__dot[aria-current="true"]::before {
+  width: 44px;
+  opacity: 1;
+  background: linear-gradient(to right, var(--text) var(--fill, 100%), var(--muted) var(--fill, 100%));
+}
+.gallery__pause {
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
-  padding: 0 0 4px;
+  padding: 0;
   border: 0;
   border-radius: 50%;
   background: var(--raised);
   color: var(--text);
   font: inherit;
-  font-size: 1.7rem;
-  line-height: 1;
+  font-size: .8rem;
   cursor: pointer;
-  transition: background-color .2s ease-out, opacity .2s ease-out;
+  transition: background-color .2s ease-out;
 }
-.gallery__btn:hover:not(:disabled) { background: var(--line-strong); }
-.gallery__btn:disabled { opacity: .35; cursor: default; }
+.gallery__pause:hover { background: var(--line-strong); }
 
 .facts {
   display: grid;
@@ -628,6 +631,6 @@ h2::before {
   html { scroll-behavior: auto; }
   .hero__head, .hero__copy, .split > li { animation: none; }
   .hero__bg { will-change: auto; transform: none !important; }
-  .split__item, .btn, .gallery__btn, .gallery__dot, .gallery__dot::before { transition: none; }
+  .split__item, .btn, .gallery__pause, .gallery__dot, .gallery__dot::before { transition: none; }
   .split__item:hover { transform: none; }
 }

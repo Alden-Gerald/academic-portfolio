@@ -121,7 +121,7 @@ const noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 document.querySelectorAll(".gallery").forEach((gallery) => {
   const track = gallery.querySelector(".gallery__track");
   const slides = [...track.querySelectorAll(".slide")];
-  const [prev, next] = gallery.querySelectorAll(".gallery__btn");
+  const pause = gallery.querySelector(".gallery__pause");
   const dots = gallery.querySelector(".gallery__dots");
   if (!track || slides.length === 0) return;
   const dotButtons = slides.map((_, i) => {
@@ -155,8 +155,7 @@ document.querySelectorAll(".gallery").forEach((gallery) => {
     waiting = false;
     const i = nearest();
     dotButtons.forEach((dot, k) => dot.setAttribute("aria-current", String(k === i)));
-    prev.disabled = i === 0;
-    next.disabled = i === slides.length - 1;
+    if (i !== current) { current = i; startedAt = performance.now(); }
   };
   track.addEventListener("scroll", () => {
     if (!waiting) {
@@ -165,8 +164,39 @@ document.querySelectorAll(".gallery").forEach((gallery) => {
     }
   }, { passive: true });
 
-  prev.addEventListener("click", () => goTo(nearest() - 1));
-  next.addEventListener("click", () => goTo(nearest() + 1));
+  // Slideshow: the current dot fills like a progress bar, then the next slide slides in.
+  const DURATION = 5000;
+  let current = 0, startedAt = performance.now(), playing = false, visible = false, raf = 0;
+  const setPlaying = (on) => {
+    playing = on && !noMotion;
+    pause.textContent = playing ? "❚❚" : "▶";
+    pause.setAttribute("aria-label", playing ? "Pause slideshow" : "Play slideshow");
+    startedAt = performance.now();
+    cancelAnimationFrame(raf);
+    if (playing && visible) raf = requestAnimationFrame(tick);
+    else dotButtons.forEach((dot) => dot.style.removeProperty("--fill"));
+  };
+  const tick = (now) => {
+    const p = Math.min(1, (now - startedAt) / DURATION);
+    dotButtons[current].style.setProperty("--fill", `${p * 100}%`);
+    if (p >= 1) {
+      startedAt = now;
+      goTo(current === slides.length - 1 ? 0 : current + 1);
+    }
+    raf = requestAnimationFrame(tick);
+  };
+  pause.addEventListener("click", () => setPlaying(!playing));
+  track.addEventListener("keydown", () => setPlaying(false));
+  track.addEventListener("pointerdown", () => setPlaying(false));
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      cancelAnimationFrame(raf);
+      startedAt = performance.now();
+      if (playing && visible) raf = requestAnimationFrame(tick);
+    }, { threshold: 0.4 }).observe(gallery);
+  }
+  setPlaying(true);
   track.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") { event.preventDefault(); goTo(nearest() + 1); }
     if (event.key === "ArrowLeft") { event.preventDefault(); goTo(nearest() - 1); }
