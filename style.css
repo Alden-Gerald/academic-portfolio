@@ -627,6 +627,30 @@ h2::before {
   .navlinks a { padding: 0 8px; font-size: .95rem; }
 }
 
+/* Scroll progress bar, demo parallax and word-by-word lead reveal (native scroll timelines) */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 60;
+  background: var(--accent, var(--university));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+.motion:not(.sdl) .scroll-progress { transform: scaleX(var(--p, 0)); }
+@keyframes progress { to { transform: scaleX(1); } }
+@keyframes video-parallax { from { translate: 0 -60px; scale: 1.18; } to { translate: 0 90px; scale: 1.06; } }
+@keyframes word-in { from { opacity: .16; } to { opacity: 1; } }
+.sdl .scroll-progress { animation: progress linear both; animation-timeline: scroll(root); }
+.sdl .tile__bg video { animation: video-parallax linear both; animation-timeline: view(); animation-range: cover; }
+.sdl .tile__lead .word {
+  display: inline-block;
+  animation: word-in linear both;
+  animation-timeline: view();
+  animation-range: entry calc(8% + var(--i) * 1.4%) entry calc(38% + var(--i) * 1.4%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero__head, .hero__copy, .split > li { animation: none; }

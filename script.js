@@ -260,3 +260,36 @@ if ("IntersectionObserver" in window && !noMotion) {
   );
   demoVideos.forEach((video) => watcher.observe(video));
 }
+
+
+// Scroll-linked extras. Native scroll timelines drive them (html.sdl); the progress bar has a JS fallback.
+const rootClasses = document.documentElement.classList;
+if (rootClasses.contains("sdl")) {
+  // Split each tile lead into words so they can brighten one after another while scrolling.
+  document.querySelectorAll(".tile__lead").forEach((lead) => {
+    const text = lead.textContent.trim();
+    lead.setAttribute("aria-label", text);
+    lead.textContent = "";
+    text.split(/\s+/).forEach((word, i, all) => {
+      const span = document.createElement("span");
+      span.className = "word";
+      span.setAttribute("aria-hidden", "true");
+      span.style.setProperty("--i", i);
+      span.textContent = word;
+      lead.append(span);
+      if (i < all.length - 1) lead.append(" ");
+    });
+  });
+} else if (rootClasses.contains("motion")) {
+  const bar = document.querySelector(".scroll-progress");
+  let queued = false;
+  window.addEventListener("scroll", () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.setProperty("--p", max > 0 ? Math.min(1, scrollY / max) : 0);
+    });
+  }, { passive: true });
+}
