@@ -122,8 +122,17 @@ document.querySelectorAll(".gallery").forEach((gallery) => {
   const track = gallery.querySelector(".gallery__track");
   const slides = [...track.querySelectorAll(".slide")];
   const [prev, next] = gallery.querySelectorAll(".gallery__btn");
-  const count = gallery.querySelector(".gallery__count");
+  const dots = gallery.querySelector(".gallery__dots");
   if (!track || slides.length === 0) return;
+  const dotButtons = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "gallery__dot";
+    dot.setAttribute("aria-label", `Image ${i + 1} of ${slides.length}`);
+    dot.addEventListener("click", () => goTo(i));
+    dots.append(dot);
+    return dot;
+  });
 
   const nearest = () => {
     const middle = track.scrollLeft + track.clientWidth / 2;
@@ -145,7 +154,7 @@ document.querySelectorAll(".gallery").forEach((gallery) => {
   const update = () => {
     waiting = false;
     const i = nearest();
-    count.textContent = `${i + 1} / ${slides.length}`;
+    dotButtons.forEach((dot, k) => dot.setAttribute("aria-current", String(k === i)));
     prev.disabled = i === 0;
     next.disabled = i === slides.length - 1;
   };
@@ -186,27 +195,23 @@ document.querySelectorAll(".gallery").forEach((gallery) => {
 });
 
 
-// Demo videos play only while they are visible, and every one can be paused.
-// With reduced motion they stay paused until the visitor presses play.
-const demoVideos = [...document.querySelectorAll(".slide video")];
+// Background demo videos play only while their tile is visible, and every one can be paused.
+// With reduced motion they stay paused on the poster frame until the visitor presses play.
+const demoVideos = [...document.querySelectorAll(".tile__bg video")];
+const toggleFor = (video) => video.closest(".tile").querySelector(".tile__bgtoggle");
 const setToggle = (video) => {
-  const button = video.parentElement.querySelector(".slide__toggle");
-  if (!button) return;
+  const button = toggleFor(video);
   button.textContent = video.paused ? "▶" : "❚❚";
-  button.setAttribute("aria-label", video.paused ? "Play demo" : "Pause demo");
+  button.setAttribute("aria-label", video.paused ? "Play background demo" : "Pause background demo");
 };
 
 demoVideos.forEach((video) => {
-  const button = video.parentElement.querySelector(".slide__toggle");
   video.addEventListener("play", () => setToggle(video));
   video.addEventListener("pause", () => setToggle(video));
-  if (button) {
-    button.addEventListener("click", () => {
-      video.dataset.userPaused = video.paused ? "" : "1";
-      if (video.paused) video.play().catch(() => {}); else video.pause();
-    });
-  }
-  video.addEventListener("click", () => button && button.click());
+  toggleFor(video).addEventListener("click", () => {
+    video.dataset.userPaused = video.paused ? "" : "1";
+    if (video.paused) video.play().catch(() => {}); else video.pause();
+  });
   setToggle(video);
 });
 
@@ -221,7 +226,7 @@ if ("IntersectionObserver" in window && !noMotion) {
         }
       });
     },
-    { threshold: 0.6 },
+    { threshold: 0.2 },
   );
   demoVideos.forEach((video) => watcher.observe(video));
 }

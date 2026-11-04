@@ -96,6 +96,8 @@
       </div>
       <div class="tiles">
         <article class="tile">
+          <div class="tile__bg" aria-hidden="true"><video src="demos/aws.mp4" poster="demos/aws-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video></div>
+          <button class="tile__bgtoggle" type="button" aria-label="Pause background demo">❚❚</button>
           <div class="tile__text">
             <p class="tile__eyebrow">Cloud Computing &amp; AWS</p>
             <h3>AWS Cloud Storage Strategy</h3>
@@ -108,13 +110,6 @@
           <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Images of AWS Cloud Storage Strategy">
             <ul class="gallery__track" tabindex="0" aria-label="Scroll sideways to see more">
               <li class="slide"><figure>
-                <div class="slide__frame">
-                  <video src="demos/aws.mp4" poster="demos/aws-poster.jpg" muted loop playsinline preload="none" aria-label="Animated walkthrough of the architecture diagram, drawing each connection in turn"></video>
-                  <button class="slide__toggle" type="button" aria-label="Pause demo">❚❚</button>
-                </div>
-                <figcaption>Walkthrough of the architecture: each connection is drawn in turn, from users to storage.</figcaption>
-              </figure></li>
-              <li class="slide"><figure>
                 <div class="slide__frame"><img src="shots/aws.webp" alt="Architecture diagram: students and staff reach an EC2 application backed by EBS and EFS, and CloudFront serving videos from S3 with a lifecycle policy to S3 Glacier, all governed by IAM" loading="lazy" decoding="async" draggable="false"></div>
                 <figcaption>The project’s architecture diagram, rendered from its repository README.</figcaption>
               </figure></li>
@@ -125,7 +120,7 @@
             </ul>
             <div class="gallery__controls">
               <button class="gallery__btn" type="button" data-dir="-1" aria-label="Previous image">‹</button>
-              <span class="gallery__count" aria-live="polite">1 / 3</span>
+              <div class="gallery__dots" role="group" aria-label="Choose image"></div>
               <button class="gallery__btn" type="button" data-dir="1" aria-label="Next image">›</button>
             </div>
           </div>
@@ -133,6 +128,8 @@
           <ul class="stack" aria-label="Technologies"><li>EBS</li><li>S3</li><li>CloudFront</li><li>EFS</li><li>S3 Glacier</li><li>IAM</li></ul>
         </article>
         <article class="tile">
+          <div class="tile__bg" aria-hidden="true"><video src="demos/hampiness.mp4" poster="demos/hampiness-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video></div>
+          <button class="tile__bgtoggle" type="button" aria-label="Pause background demo">❚❚</button>
           <div class="tile__text">
             <p class="tile__eyebrow">System Analysis &amp; Design</p>
             <h3><span translate="no">Hampiness</span> System Design</h3>
@@ -145,13 +142,6 @@
           <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Images of Hampiness System Design">
             <ul class="gallery__track" tabindex="0" aria-label="Scroll sideways to see more">
               <li class="slide"><figure>
-                <div class="slide__frame">
-                  <video src="demos/hampiness.mp4" poster="demos/hampiness-poster.jpg" muted loop playsinline preload="none" aria-label="Animated walkthrough of the three-tier architecture diagram"></video>
-                  <button class="slide__toggle" type="button" aria-label="Pause demo">❚❚</button>
-                </div>
-                <figcaption>Walkthrough of the proposed three-tier architecture.</figcaption>
-              </figure></li>
-              <li class="slide"><figure>
                 <div class="slide__frame"><img src="shots/hamp.webp" alt="Architecture diagram: Android and iOS clients connect to an application server, which uses a database server and marketplace services" loading="lazy" decoding="async" draggable="false"></div>
                 <figcaption>The proposed three-tier architecture, rendered from the repository README.</figcaption>
               </figure></li>
@@ -162,7 +152,7 @@
             </ul>
             <div class="gallery__controls">
               <button class="gallery__btn" type="button" data-dir="-1" aria-label="Previous image">‹</button>
-              <span class="gallery__count" aria-live="polite">1 / 3</span>
+              <div class="gallery__dots" role="group" aria-label="Choose image"></div>
               <button class="gallery__btn" type="button" data-dir="1" aria-label="Next image">›</button>
             </div>
           </div>
@@ -170,6 +160,8 @@
           <ul class="stack" aria-label="Technologies"><li>DFD</li><li>UML</li><li>Fishbone analysis</li><li>Three-tier architecture</li></ul>
         </article>
         <article class="tile">
+          <div class="tile__bg" aria-hidden="true"><video src="demos/student-registration.mp4" poster="demos/student-registration-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video></div>
+          <button class="tile__bgtoggle" type="button" aria-label="Pause background demo">❚❚</button>
           <div class="tile__text">
             <p class="tile__eyebrow">Database &amp; Desktop</p>
             <h3>Student Registration</h3>
@@ -181,13 +173,6 @@
           </div>
           <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Images of Student Registration">
             <ul class="gallery__track" tabindex="0" aria-label="Scroll sideways to see more">
-              <li class="slide"><figure>
-                <div class="slide__frame">
-                  <video src="demos/student-registration.mp4" poster="demos/student-registration-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of the Student Registration app adding a student, selecting and updating a record, and showing validation"></video>
-                  <button class="slide__toggle" type="button" aria-label="Pause demo">❚❚</button>
-                </div>
-                <figcaption>Screen recording: add a student, update a record, and see validation.</figcaption>
-              </figure></li>
               <li class="slide"><figure>
                 <div class="slide__frame"><img src="shots/sr-main.webp" alt="The Student Registration desktop app showing an empty form above a table of five demo students" loading="lazy" decoding="async" draggable="false"></div>
                 <figcaption>The running desktop app, loaded with demo student records.</figcaption>
@@ -203,7 +188,7 @@
             </ul>
             <div class="gallery__controls">
               <button class="gallery__btn" type="button" data-dir="-1" aria-label="Previous image">‹</button>
-              <span class="gallery__count" aria-live="polite">1 / 4</span>
+              <div class="gallery__dots" role="group" aria-label="Choose image"></div>
               <button class="gallery__btn" type="button" data-dir="1" aria-label="Next image">›</button>
             </div>
           </div>
@@ -211,6 +196,8 @@
           <ul class="stack" aria-label="Technologies"><li>Java 17</li><li>JavaFX 21</li><li>MySQL</li><li>JDBC</li><li>DAO</li></ul>
         </article>
         <article class="tile">
+          <div class="tile__bg" aria-hidden="true"><video src="demos/thriftvibe.mp4" poster="demos/thriftvibe-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video></div>
+          <button class="tile__bgtoggle" type="button" aria-label="Pause background demo">❚❚</button>
           <div class="tile__text">
             <p class="tile__eyebrow">Web Development &amp; Database</p>
             <h3><span translate="no">ThriftVibe</span> Marketplace</h3>
@@ -222,13 +209,6 @@
           </div>
           <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Images of ThriftVibe Marketplace">
             <ul class="gallery__track" tabindex="0" aria-label="Scroll sideways to see more">
-              <li class="slide"><figure>
-                <div class="slide__frame">
-                  <video src="demos/thriftvibe.mp4" poster="demos/thriftvibe-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of ThriftVibe: browsing, filtering by hoodie, opening a product video, then signing in as a seller"></video>
-                  <button class="slide__toggle" type="button" aria-label="Pause demo">❚❚</button>
-                </div>
-                <figcaption>Screen recording: browse, filter, watch a product video, then sign in as a seller.</figcaption>
-              </figure></li>
               <li class="slide"><figure>
                 <div class="slide__frame"><img src="shots/tv-home.webp" alt="ThriftVibe’s home page with a search bar, call-to-action buttons, and marketplace statistics" loading="lazy" decoding="async" draggable="false"></div>
                 <figcaption>Home page, running with demo data.</figcaption>
@@ -260,7 +240,7 @@
             </ul>
             <div class="gallery__controls">
               <button class="gallery__btn" type="button" data-dir="-1" aria-label="Previous image">‹</button>
-              <span class="gallery__count" aria-live="polite">1 / 8</span>
+              <div class="gallery__dots" role="group" aria-label="Choose image"></div>
               <button class="gallery__btn" type="button" data-dir="1" aria-label="Next image">›</button>
             </div>
           </div>
@@ -279,6 +259,8 @@
       </div>
       <div class="tiles">
         <article class="tile">
+          <div class="tile__bg" aria-hidden="true"><video src="demos/lumina.mp4" poster="demos/lumina-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video></div>
+          <button class="tile__bgtoggle" type="button" aria-label="Pause background demo">❚❚</button>
           <div class="tile__text">
             <p class="tile__eyebrow">Local AI &amp; Developer Tools</p>
             <h3><span translate="no">Lumina</span></h3>
@@ -290,13 +272,6 @@
           </div>
           <div class="gallery" role="group" aria-roledescription="carousel" aria-label="Images of Lumina">
             <ul class="gallery__track" tabindex="0" aria-label="Scroll sideways to see more">
-              <li class="slide"><figure>
-                <div class="slide__frame">
-                  <video src="demos/lumina.mp4" poster="demos/lumina-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of Lumina: switching workspaces, typing a message, and opening the neural network explorer"></video>
-                  <button class="slide__toggle" type="button" aria-label="Pause demo">❚❚</button>
-                </div>
-                <figcaption>Screen recording: switch workspaces, draft a message, and open the neural network explorer.</figcaption>
-              </figure></li>
               <li class="slide"><figure>
                 <div class="slide__frame"><img src="shots/lumina.webp" alt="Lumina’s code workspace showing local model controls, a task conversation, and file attachments" loading="lazy" decoding="async" draggable="false"></div>
                 <figcaption>Code workspace, from the project repository.</figcaption>
@@ -312,7 +287,7 @@
             </ul>
             <div class="gallery__controls">
               <button class="gallery__btn" type="button" data-dir="-1" aria-label="Previous image">‹</button>
-              <span class="gallery__count" aria-live="polite">1 / 4</span>
+              <div class="gallery__dots" role="group" aria-label="Choose image"></div>
               <button class="gallery__btn" type="button" data-dir="1" aria-label="Next image">›</button>
             </div>
           </div>

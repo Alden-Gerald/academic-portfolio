@@ -269,8 +269,43 @@ h2::before {
   background: var(--tile-bg);
   text-align: center;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
 }
 .section--personal .tile { --tile-bg: var(--surface); }
+.tile > :not(.tile__bg):not(.tile__bgtoggle) { position: relative; z-index: 1; }
+
+/* The demo recording plays behind the heading, dimmed and faded into the tile colour */
+.tile__bg { position: absolute; inset: 0 0 auto 0; height: min(100%, 780px); z-index: 0; overflow: hidden; pointer-events: none; }
+.tile__bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) saturate(.85) blur(4px); transform: scale(1.04); }
+.tile__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, color-mix(in srgb, var(--tile-bg) 72%, transparent) 0%, color-mix(in srgb, var(--tile-bg) 84%, transparent) 55%, var(--tile-bg) 100%);
+}
+.tile__bgtoggle {
+  position: absolute;
+  top: 16px;
+  right: max(16px, var(--gutter));
+  z-index: 2;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(31, 35, 43, .7);
+  color: var(--text);
+  font: inherit;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color .2s ease-out;
+}
+.tile__bgtoggle:hover { background: rgba(59, 66, 82, .92); }
 
 .tile__text { display: flex; flex-direction: column; align-items: center; max-width: 52rem; }
 .tile__eyebrow { color: var(--accent); font-weight: 700; font-size: clamp(1rem, 1.6vw, 1.2rem); }
@@ -330,33 +365,42 @@ h2::before {
   overflow: hidden;
   box-shadow: 0 30px 70px rgba(0, 0, 0, .4);
 }
-.slide__frame { position: relative; }
-.slide__frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
-.slide__toggle {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  min-width: 44px;
-  height: 44px;
-  padding: 0 14px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(31, 35, 43, .78);
-  color: var(--text);
-  font: inherit;
-  font-size: .8rem;
-  letter-spacing: .06em;
-  cursor: pointer;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  transition: background-color .2s ease-out;
-}
-.slide__toggle:hover { background: rgba(59, 66, 82, .92); }
 .slide__frame img { width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
 .slide figcaption { margin-top: 18px; color: var(--muted); font-size: .92rem; line-height: 1.5; text-align: center; text-wrap: balance; }
 
 .gallery__controls { display: flex; align-items: center; justify-content: center; gap: 18px; }
-.gallery__count { min-width: 4.5ch; color: var(--muted); font-size: .95rem; font-variant-numeric: tabular-nums; }
+/* Apple-style slide indicator: a dark pill, dots for the other slides, an elongated bar for the current one */
+.gallery__dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--raised);
+}
+.gallery__dot {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: width .35s cubic-bezier(.25, .1, .25, 1);
+}
+.gallery__dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--muted);
+  opacity: .75;
+  transition: width .35s cubic-bezier(.25, .1, .25, 1), background-color .25s ease-out, opacity .25s ease-out;
+}
+.gallery__dot[aria-current="true"] { width: 52px; }
+.gallery__dot[aria-current="true"]::before { width: 44px; background: var(--text); opacity: 1; }
 .gallery__btn {
   display: grid;
   place-items: center;
@@ -584,6 +628,6 @@ h2::before {
   html { scroll-behavior: auto; }
   .hero__head, .hero__copy, .split > li { animation: none; }
   .hero__bg { will-change: auto; transform: none !important; }
-  .split__item, .btn, .gallery__btn { transition: none; }
+  .split__item, .btn, .gallery__btn, .gallery__dot, .gallery__dot::before { transition: none; }
   .split__item:hover { transform: none; }
 }
