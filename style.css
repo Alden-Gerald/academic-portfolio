@@ -301,16 +301,58 @@ h2::before {
 .btn--primary { background: var(--accent); color: var(--bg); box-shadow: none; }
 .btn--primary:hover { background: color-mix(in srgb, var(--accent) 82%, white); }
 
-.tile__shot { margin: clamp(36px, 6vw, 64px) auto 0; width: min(100%, 1040px); }
-.tile__shot--wide { width: min(100%, 880px); }
-.tile__shot img {
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  background: var(--raised);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+/* Horizontal gallery: scroll-snapped, with the neighbouring images peeking in */
+.gallery {
+  --slide: min(88vw, 960px);
+  align-self: stretch;
+  margin: clamp(36px, 6vw, 64px) calc(var(--gutter) * -1) 0;
 }
-.tile__shot figcaption { margin-top: 18px; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.gallery__track {
+  display: flex;
+  gap: clamp(14px, 2vw, 24px);
+  padding: 0 max(var(--gutter), calc((100% - var(--slide)) / 2)) 28px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(var(--gutter), calc((100% - var(--slide)) / 2));
+  scrollbar-width: none;
+  cursor: grab;
+}
+.gallery__track::-webkit-scrollbar { display: none; }
+.gallery__track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+.gallery__track:focus-visible { outline-offset: -4px; }
+.slide { flex: 0 0 var(--slide); scroll-snap-align: center; min-width: 0; }
+.slide figure { margin: 0; }
+.slide__frame {
+  aspect-ratio: 16 / 10;
+  background: #14171d;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .4);
+}
+.slide__frame img { width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+.slide figcaption { margin-top: 18px; color: var(--muted); font-size: .92rem; line-height: 1.5; text-align: center; text-wrap: balance; }
+
+.gallery__controls { display: flex; align-items: center; justify-content: center; gap: 18px; }
+.gallery__count { min-width: 4.5ch; color: var(--muted); font-size: .95rem; font-variant-numeric: tabular-nums; }
+.gallery__btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0 0 4px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--raised);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s ease-out, opacity .2s ease-out;
+}
+.gallery__btn:hover:not(:disabled) { background: var(--line-strong); }
+.gallery__btn:disabled { opacity: .35; cursor: default; }
 
 .facts {
   display: grid;
@@ -414,6 +456,7 @@ h2::before {
   from { opacity: 0; translate: 0 72px; scale: .9; }
   to { opacity: 1; translate: 0 0; scale: 1; }
 }
+@keyframes slide-focus { 0%, 100% { scale: .9; opacity: .45; } 50% { scale: 1; opacity: 1; } }
 @keyframes shot-in { from { opacity: .15; translate: 0 90px; scale: .84; } to { opacity: 1; translate: 0 0; scale: 1; } }
 @keyframes hero-out { to { translate: 0 -110px; scale: .88; opacity: 0; } }
 @keyframes hero-out-soft { to { translate: 0 -50px; opacity: 0; } }
@@ -429,10 +472,15 @@ h2::before {
   animation-timeline: view();
   animation-range: entry 0% entry 60%;
 }
-.sdl .tile__shot {
+.sdl .gallery {
   animation: shot-in linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 38%;
+}
+/* The slide nearest the middle of the track is full size; the others recede */
+.sdl .slide figure {
+  animation: slide-focus linear both;
+  animation-timeline: view(inline);
 }
 .sdl .hero__head {
   animation: settle .6s ease-out backwards, hero-out linear both;
@@ -514,6 +562,6 @@ h2::before {
   html { scroll-behavior: auto; }
   .hero__head, .hero__copy, .split > li { animation: none; }
   .hero__bg { will-change: auto; transform: none !important; }
-  .split__item, .btn { transition: none; }
+  .split__item, .btn, .gallery__btn { transition: none; }
   .split__item:hover { transform: none; }
 }

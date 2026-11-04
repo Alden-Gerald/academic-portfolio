@@ -87,7 +87,7 @@ if (document.documentElement.classList.contains("motion") && !document.documentE
     targets.push(el);
   });
   mark(".tile__text", "head", 0);
-  mark(".tile__shot", "zoom", 0);
+  mark(".gallery", "zoom", 0);
   mark(".tile .facts", "head", 0);
   mark(".tile .stack", "head", 0);
   mark(".skill-group", "", 110);
@@ -113,3 +113,74 @@ if (document.documentElement.classList.contains("motion") && !document.documentE
 
   targets.forEach((el) => reveal.observe(el));
 }
+
+
+// Horizontal galleries: arrow buttons, keyboard arrows, mouse drag, and a position counter.
+const noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.querySelectorAll(".gallery").forEach((gallery) => {
+  const track = gallery.querySelector(".gallery__track");
+  const slides = [...track.querySelectorAll(".slide")];
+  const [prev, next] = gallery.querySelectorAll(".gallery__btn");
+  const count = gallery.querySelector(".gallery__count");
+  if (!track || slides.length === 0) return;
+
+  const nearest = () => {
+    const middle = track.scrollLeft + track.clientWidth / 2;
+    let best = 0;
+    slides.forEach((slide, i) => {
+      const center = slide.offsetLeft + slide.offsetWidth / 2;
+      if (Math.abs(center - middle) < Math.abs(slides[best].offsetLeft + slides[best].offsetWidth / 2 - middle)) best = i;
+    });
+    return best;
+  };
+
+  const goTo = (index) => {
+    const slide = slides[Math.max(0, Math.min(slides.length - 1, index))];
+    const left = slide.offsetLeft + slide.offsetWidth / 2 - track.clientWidth / 2;
+    track.scrollTo({ left, behavior: noMotion ? "auto" : "smooth" });
+  };
+
+  let waiting = false;
+  const update = () => {
+    waiting = false;
+    const i = nearest();
+    count.textContent = `${i + 1} / ${slides.length}`;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  };
+  track.addEventListener("scroll", () => {
+    if (!waiting) {
+      waiting = true;
+      window.requestAnimationFrame(update);
+    }
+  }, { passive: true });
+
+  prev.addEventListener("click", () => goTo(nearest() - 1));
+  next.addEventListener("click", () => goTo(nearest() + 1));
+  track.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") { event.preventDefault(); goTo(nearest() + 1); }
+    if (event.key === "ArrowLeft") { event.preventDefault(); goTo(nearest() - 1); }
+  });
+
+  // Mouse drag (touch and trackpads already scroll natively)
+  let startX = 0, startLeft = 0, dragging = false;
+  track.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+    dragging = true;
+    startX = event.clientX;
+    startLeft = track.scrollLeft;
+    track.classList.add("is-dragging");
+  });
+  window.addEventListener("pointermove", (event) => {
+    if (dragging) track.scrollLeft = startLeft - (event.clientX - startX);
+  });
+  window.addEventListener("pointerup", () => {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove("is-dragging");
+    goTo(nearest());
+  });
+
+  update();
+});
