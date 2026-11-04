@@ -256,57 +256,53 @@ h2::before {
 
 .section__copy { margin-top: 14px; padding-left: 18px; color: var(--muted); }
 
-/* Cards */
-.grid { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
-.grid > li { display: flex; min-width: 0; }
+/* Projects: one full-width panel per project, copy and teaser split on a diagonal,
+   alternating sides. On phones the teaser sits on top with a slanted lower edge. */
+.projects { display: grid; gap: clamp(20px, 3vw, 32px); }
+.projects > li { min-width: 0; }
 
-.card {
+.project {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
   min-width: 0;
-  padding: 28px;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 24px;
   text-decoration: none;
-  overflow: hidden;
-  transition: transform .18s ease-out;
+  transition: transform .25s var(--ease, ease-out), border-color .2s ease-out;
 }
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid var(--accent);
-  border-radius: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .18s ease-out;
-}
-.card:hover { transform: translateY(-3px); }
-.card:hover::after, .card:focus-visible::after { opacity: 1; }
+.section--university .project { background: var(--bg); }
+.project:hover, .project:focus-visible { transform: translateY(-3px); border-color: var(--accent); }
 
-.section--university .card { background: var(--bg); }
+.project__media {
+  height: clamp(190px, 46vw, 300px);
+  background: var(--raised);
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
+}
+.projects > li:nth-child(even) .project__media { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 84%); }
+.project__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.project__body { display: flex; flex-direction: column; min-width: 0; padding: 8px 24px 28px; }
 
 .tag { color: var(--accent); font-weight: 700; font-size: .95rem; }
 
-.card h3 {
+.project h3 {
   margin-top: 10px;
-  font-size: 1.45rem;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -.02em;
+  line-height: 1.15;
+  letter-spacing: -.025em;
 }
-
-.card p { margin-top: 12px; color: var(--muted); }
+.project p { margin-top: 12px; max-width: 56ch; color: var(--muted); }
 
 .facts { display: grid; gap: 12px; margin: 18px 0 0; }
 .facts > div { display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); gap: 14px; }
 .facts dt { color: var(--accent); font-weight: 700; font-size: .95rem; }
 .facts dd { margin: 0; min-width: 0; color: var(--text-soft); font-size: .98rem; line-height: 1.55; }
 
-.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 22px; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .stack li {
   padding: 4px 11px;
   border: 1px solid var(--line-strong);
@@ -326,24 +322,7 @@ h2::before {
   text-decoration-thickness: 2px;
   transition: text-decoration-color .18s ease-out;
 }
-.card:hover .project-link, .card:focus-visible .project-link { text-decoration-color: currentColor; }
-
-.card--featured { display: grid; gap: 28px; padding: 24px; align-items: center; }
-.card__body { display: flex; flex-direction: column; min-width: 0; }
-.card--featured h3 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
-.card--featured p { max-width: 56ch; }
-.card--featured .stack { margin-top: 0; }
-
-.screenshot {
-  margin: 0;
-  min-width: 0;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.screenshot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: var(--raised); }
-.screenshot figcaption { padding: 10px 14px; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.project:hover .project-link, .project:focus-visible .project-link { text-decoration-color: currentColor; }
 
 /* Skills */
 .skills { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
@@ -421,22 +400,23 @@ h2::before {
   from { opacity: 0; translate: 0 72px; scale: .9; }
   to { opacity: 1; translate: 0 0; scale: 1; }
 }
+@keyframes media-in { from { scale: 1.14; } to { scale: 1; } }
 @keyframes hero-out { to { translate: 0 -110px; scale: .88; opacity: 0; } }
 @keyframes hero-out-soft { to { translate: 0 -50px; opacity: 0; } }
 @keyframes bg-drift { to { transform: translate3d(0, 130px, 0) scale(1.1); } }
 
 .sdl .section__head > *,
-.sdl .grid > li,
+.sdl .projects > li,
 .sdl .skill-group,
 .sdl .site-footer__inner {
   animation: rise linear both;
   animation-timeline: view();
   animation-range: entry 0% entry 60%;
 }
-.sdl .card--featured {
-  animation: rise-zoom linear both;
+.sdl .project__media img {
+  animation: media-in linear both;
   animation-timeline: view();
-  animation-range: entry 0% entry 65%;
+  animation-range: entry 0% cover 55%;
 }
 .sdl .hero__head {
   animation: settle .6s ease-out backwards, hero-out linear both;
@@ -461,14 +441,28 @@ h2::before {
 }
 
 
+/* Phones and tablets: enlarge the illustrations so they stay readable in the short banner */
+@media (max-width: 999px) {
+  .project__media { position: relative; }
+  .section--university .project__media img {
+    position: absolute;
+    top: 50%;
+    width: 135%;
+    max-width: none;
+    height: auto;
+    translate: 0 -50%;
+  }
+  .section--university .projects > li:nth-child(odd) .project__media img { left: -36%; }
+  .section--university .projects > li:nth-child(even) .project__media img { left: -1%; }
+}
+
 /* Tablet */
 @media (min-width: 700px) {
   :root { --gutter: max(32px, env(safe-area-inset-left), env(safe-area-inset-right)); }
   h1 { font-size: clamp(4.5rem, 11vw, 6.5rem); }
   .hero__subtitle { font-size: clamp(2.25rem, 5vw, 3.25rem); }
   .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .card--featured { padding: 32px; }
+  .project__body { padding: 8px 36px 36px; }
 }
 
 /* Desktop and 16:9 screens: copy left, project split right, hero fitted to the viewport */
@@ -491,7 +485,26 @@ h2::before {
   .hero__subtitle { max-width: 34ch; font-size: clamp(2rem, min(3vw, 5vh), 3.25rem); }
   .lead { font-size: clamp(1.1rem, min(1.35vw, 2.6vh), 1.35rem); }
 
-  .card--featured { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 44px; padding: 40px; }
+  /* Diagonal split: text column on one side, teaser image on the other */
+  .project { min-height: clamp(480px, 64vh, 640px); border-radius: 28px; }
+  .project__media {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 62%;
+    height: auto;
+    clip-path: polygon(48% 0, 100% 0, 100% 100%, 13% 100%);
+  }
+  .projects > li:nth-child(even) .project__media {
+    inset: 0 auto 0 0;
+    clip-path: polygon(0 0, 52% 0, 87% 100%, 0 100%);
+  }
+  .project__body {
+    position: relative;
+    width: 46%;
+    justify-content: center;
+    padding: clamp(28px, 3.4vw, 52px);
+  }
+  .projects > li:nth-child(even) .project__body { margin-left: auto; }
   .skills { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .skill-group { grid-column: span 2; }
   .skill-group:nth-child(n + 4) { grid-column: span 3; }
@@ -501,8 +514,7 @@ h2::before {
 @media (min-width: 1600px) {
   .shell { max-width: 1480px; }
   body { font-size: 1.125rem; }
-  .card { padding: 34px; }
-  .card h3 { font-size: 1.6rem; }
+  .project h3 { font-size: 2.6rem; }
 }
 
 /* Short, wide windows (laptops at 16:9 with browser chrome) */
@@ -516,8 +528,7 @@ h2::before {
   .site-header__inner { flex-wrap: wrap; row-gap: 0; padding-block: 8px; }
   .navlinks { gap: 0; }
   .navlinks a { padding: 0 8px; font-size: .95rem; }
-  .card { padding: 22px; }
-  .card--featured { padding: 18px; }
+  .project__body { padding: 4px 20px 24px; }
   .facts > div { grid-template-columns: 1fr; gap: 2px; }
 }
 
@@ -525,6 +536,6 @@ h2::before {
   html { scroll-behavior: auto; }
   .hero__head, .hero__copy, .split > li { animation: none; }
   .hero__bg { will-change: auto; transform: none !important; }
-  .card, .card::after, .split__item, .project-link { transition: none; }
-  .card:hover, .split__item:hover { transform: none; }
+  .project, .split__item, .project-link { transition: none; }
+  .project:hover, .split__item:hover { transform: none; }
 }

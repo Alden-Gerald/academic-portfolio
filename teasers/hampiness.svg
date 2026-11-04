@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" preserveAspectRatio="xMidYMid slice" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <defs>
+    <pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#88c0d0" stroke-opacity=".07"/></pattern>
+    <radialGradient id="glow" cx="38%" cy="50%" r="55%"><stop offset="0" stop-color="#88c0d0" stop-opacity=".22"/><stop offset="1" stop-color="#88c0d0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1000" height="640" fill="#222833"/>
+  <rect width="1000" height="640" fill="url(#g)"/>
+  <rect width="1000" height="640" fill="url(#glow)"/>
+  <g transform="translate(380 320) scale(.8)">
+    <rect x="-200" y="-190" width="400" height="86" rx="16" fill="#2e3440" stroke="#88c0d0" stroke-opacity=".75" stroke-width="2"/>
+    <text x="-170" y="-152" font-size="24" font-weight="700" fill="#eceff4">Presentation</text>
+    <text x="-170" y="-126" font-size="16" fill="#aab4c5">buyer and seller screens</text>
+    <circle cx="165" cy="-147" r="9" fill="#88c0d0" fill-opacity=".8"/>
+    <path d="M0 -100 v26 m-8 -8 l8 8 l8 -8" fill="none" stroke="#4c566a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="-200" y="-64" width="400" height="86" rx="16" fill="#2e3440" stroke="#81a1c1" stroke-opacity=".75" stroke-width="2"/>
+    <text x="-170" y="-26" font-size="24" font-weight="700" fill="#eceff4">Application logic</text>
+    <text x="-170" y="0" font-size="16" fill="#aab4c5">orders, listings, rules</text>
+    <circle cx="165" cy="-21" r="9" fill="#81a1c1" fill-opacity=".8"/>
+    <path d="M0 26 v26 m-8 -8 l8 8 l8 -8" fill="none" stroke="#4c566a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="-200" y="62" width="400" height="86" rx="16" fill="#2e3440" stroke="#a3be8c" stroke-opacity=".75" stroke-width="2"/>
+    <text x="-170" y="100" font-size="24" font-weight="700" fill="#eceff4">Data</text>
+    <text x="-170" y="126" font-size="16" fill="#aab4c5">users, products, transactions</text>
+    <circle cx="165" cy="105" r="9" fill="#a3be8c" fill-opacity=".8"/>
+    <g transform="translate(-200 190)" fill="none" stroke="#4c566a" stroke-width="2.5" stroke-linecap="round">
+      <path d="M0 18 H360"/><path d="M300 18 L330 -6 M300 18 L330 42"/><path d="M200 18 L225 0 M200 18 L225 36"/><path d="M100 18 L120 4 M100 18 L120 32"/>
+    </g>
+
+  </g>
+</svg>

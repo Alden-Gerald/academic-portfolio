@@ -86,8 +86,7 @@ if (document.documentElement.classList.contains("motion") && !document.documentE
     el.style.setProperty("--d", "110ms");
     targets.push(el);
   });
-  mark(".grid > li", "", 140);
-  mark(".card--featured", "zoom", 0);
+  mark(".projects > li", "zoom", 0);
   mark(".skill-group", "", 110);
   mark(".site-footer__inner", "head", 0);
 
